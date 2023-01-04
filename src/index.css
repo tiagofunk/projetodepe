@@ -3,9 +3,10 @@ html {
 }
 
 body {
-  margin: 0;
-  font-family: 'League Spartan', sans-serif;
-  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  -webkit-font-smoothing: antialiased;
+  font-family: Arial, Helvetica, sans-serif, Times, serif, Courier, monospace;
+  font-size: 16px;
+  margin: 0;
 }
 
