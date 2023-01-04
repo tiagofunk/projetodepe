@@ -5,7 +5,7 @@ html {
 body {
   -moz-osx-font-smoothing: grayscale;
   -webkit-font-smoothing: antialiased;
-  font-family: 'League Spartan', sans-serif;
+  font-family: Arial, Helvetica, sans-serif, Times, serif, Courier, monospace;
   font-size: 16px;
   margin: 0;
 }
