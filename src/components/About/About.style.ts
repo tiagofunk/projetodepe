@@ -1,4 +1,4 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
 
 const { colors, fonts, spaces } = Theme;
@@ -49,18 +49,20 @@ export const MVV = styled.div`
   margin-top: ${spaces.xl};
 `;
 
-export const BoxPrimary = styled.div`
-  background-color: ${colors.secondary};
+const StyleBox = css`
   width: 33.333%;
   height: 16rem;
   padding: 4rem;
 `;
 
+export const BoxPrimary = styled.div`
+  ${StyleBox}
+  background-color: ${colors.secondary};
+`;
+
 export const BoxSecondary = styled.div`
+  ${StyleBox}
   background-color: ${colors.terciary};
-  width: 33.333%;
-  height: 16rem;
-  padding: 4rem;
 `;
 
 export const BoxTitle = styled.div`
