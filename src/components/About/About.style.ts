@@ -32,9 +32,42 @@ export const Text = styled.span`
   margin-bottom: ${spaces.s};
 `;
 
-export const Imagem = styled.img`
+export const Image = styled.img`
   width: 32rem;
   height: 25rem;
   margin-left: ${spaces.s};
   margin-bottom: ${spaces.s};
+`;
+
+export const MVV = styled.div`
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+  font-family: "Stick No Bills", sans-serif;
+  width: 100%;
+  background-color: red;
+  margin-top: ${spaces.xl};
+`;
+
+export const BoxPrimary = styled.div`
+  background-color: ${colors.secondary};
+  width: 33.333%;
+  height: 16rem;
+  padding: 4rem;
+`;
+
+export const BoxSecondary = styled.div`
+  background-color: ${colors.terciary};
+  width: 33.333%;
+  height: 16rem;
+  padding: 4rem;
+`;
+
+export const BoxTitle = styled.div`
+  font-size: ${fonts.size.large};
+  font-weight: ${fonts.weight.bold};
+`;
+
+export const BoxText = styled.div`
+  font-size: ${fonts.size.large};
 `;

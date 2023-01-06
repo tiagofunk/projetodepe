@@ -2,8 +2,13 @@ import {
   Container,
   Title,
   Text,
-  Imagem,
+  Image,
   ConjuntoTextoComImagem,
+  MVV,
+  BoxPrimary,
+  BoxSecondary,
+  BoxTitle,
+  BoxText,
 } from "./About.style";
 import foto_luana from "../../assets/img/foto_luana.jpeg";
 
@@ -31,7 +36,7 @@ export const About = () => {
             vividas por essa população.
           </Text>
         </div>
-        <Imagem src={foto_luana} alt="Braços de uma mulher com tatuagens" />
+        <Image src={foto_luana} alt="Braços de uma mulher com tatuagens" />
       </ConjuntoTextoComImagem>
       <Text>
         Visto que muitos entraves se devem a questões básicas de alimentação,
@@ -40,6 +45,23 @@ export const About = () => {
         potencializando as características do indivíduo e da
         comunidade,agregaremos valor a sua existência.
       </Text>
+      <MVV>
+        <BoxPrimary>
+          <BoxTitle>Missão</BoxTitle>
+          <BoxText>Gerar saúde mental na favela.</BoxText>
+        </BoxPrimary>
+        <BoxSecondary>
+          <BoxTitle>Visão</BoxTitle>
+          <BoxText>Ser uma instituição de excelência em tratar, informar e formar a favela.</BoxText>
+        </BoxSecondary>
+        <BoxPrimary>
+          <BoxTitle>Valores</BoxTitle>
+          <BoxText>
+            Determinação, empatia, parcerias, esperança e principalmente Fé no
+            outro.
+          </BoxText>
+        </BoxPrimary>
+      </MVV>
     </Container>
   );
 };
