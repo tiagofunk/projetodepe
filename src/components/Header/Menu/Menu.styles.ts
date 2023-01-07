@@ -1,18 +1,26 @@
-import { MenuOutlined } from "@ant-design/icons/lib/icons";
-import styled from "styled-components";
+import { MenuOutlined, CloseOutlined } from "@ant-design/icons/lib/icons";
+import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
 
-const { colors } = Theme;
+const { colors, spaces } = Theme;
 
 export const MenuContainer = styled.div`
-  padding: 2rem;
-  padding-left: 3rem;
+  padding: ${spaces.mp};
+  padding-left: ${spaces.l};
 `;
 
-export const MenuIcon = styled(MenuOutlined)`
+const imgStyle = css`
   svg {
     fill: ${colors.white};
     height: 2rem;
     width: 3rem;
   }
+`;
+
+export const MenuIcon = styled(MenuOutlined)`
+  ${imgStyle}
+`;
+
+export const CloseMenuIcon = styled(CloseOutlined)`
+  ${imgStyle}
 `;

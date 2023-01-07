@@ -1,11 +1,14 @@
-import React from "react";
+import Carousel from "components/Carousel/Carousel";
 import { About } from "../../components/About/About";
-import { MainArea } from "./Main.style";
+import { Container, MainArea } from "./Main.style";
 
 export const Main = () => {
   return (
-    <MainArea>
-      <About />
-    </MainArea>
+    <Container>
+      <Carousel />
+      <MainArea>
+        <About />
+      </MainArea>
+    </Container>
   );
 };
