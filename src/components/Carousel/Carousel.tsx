@@ -10,7 +10,7 @@ export const Carousel = () => {
   const carouselContent = [img1, img2, img3, img4];
 
   return (
-    <CarouselAntd>
+    <CarouselAntd autoplay autoplaySpeed={7000} effect='fade'>
       {carouselContent.map((tabContent) => (
         <Tab>
           <StyledImg src={tabContent} alt="" />
