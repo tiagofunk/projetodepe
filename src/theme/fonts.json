@@ -1,6 +1,7 @@
 {
     "lineHeight": "2.4rem",
     "size": {
+        "large":"2.4rem",
         "default": "1.6rem",
         "small": "1.2rem"
     },
