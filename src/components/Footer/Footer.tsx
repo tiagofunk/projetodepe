@@ -72,7 +72,7 @@ export const Footer = () => {
           textCombination: [
             {
               initiator: "CNPJ: ",
-              text: `48.289.801/0001-45(Chave PIX)`,
+              text: `48.289.801/0001-45 (Chave PIX)`,
             },
           ],
         },
@@ -111,11 +111,7 @@ export const Footer = () => {
           width="100%"
           height="250"
           src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Av.%20Jos%C3%A9%20de%20Arimat%C3%A9ia,%2080%20-%20Cidade%20de%20Deus+(My%20Business%20Name)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
-        >
-          <a href="https://www.maps.ie/distance-area-calculator.html">
-            measure distance on map
-          </a>
-        </StyledIframe>
+        />
       </InnerContainer>
     </FooterContainer>
   );
