@@ -26,3 +26,12 @@ export const Text = styled.div`
   text-align: center;
   margin-bottom: ${spaces.s};
 `;
+
+export const ScrollableContainer = styled.div`
+  height: 50rem;
+  overflow-y: scroll;
+`;
+
+export const Background = styled.div`
+  padding-top: 5rem;
+`;

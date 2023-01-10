@@ -1,12 +1,16 @@
 import {
-    Container, Text, Title
-  } from "./Timeline.style";
+  Container,
+  Text,
+  Title,
+  ScrollableContainer,
+  Background,
+} from "./Timeline.style";
+import { useState } from "react";
+import { Timeline as TimelineAnt, Affix } from "antd";
 
-import { Timeline as TimelineAnt } from 'antd';
-  
-  export const Timeline = () => {
-    const TIMELINE_TEXT = [
-        ["09/08/2021", "Manuscrito do  que na época nasceu \"voando alto\""],
+export const Timeline = () => {
+  const TIMELINE_TEXT = [
+    ["09/08/2021", "Manuscrito do  que na época nasceu \"voando alto\""],
         ["16/08/2021", "Visita a casa do artista,na esperança de mostrar o projeto, consegui ser recebida pelo empresário,mas sem maiores desdobramentos."],
         ["01/09/2021", "Primeira reunião,convite a Camila Pires"],
         ["24/09/2021", "Clarice pires entra no projeto"],
@@ -22,22 +26,30 @@ import { Timeline as TimelineAnt } from 'antd';
         ["07/04/2022", "Priscila Santos assistente social entra no projeto"],
         ["17/05/2022", "Criação da visão, missão e valores"],
         ["20-21/05/2022", "Fórum Rio 2022"],
-    ];
+  ];
 
-    return (
-      <Container>
-        <Title>Linha do Tempo</Title>
-        <TimelineAnt mode="alternate" >
-            {TIMELINE_TEXT.map( (text) => (
+  const [container] = useState<HTMLDivElement | null>(null);
+
+  return (
+    <Container>
+      <Title>Linha do Tempo</Title>
+      <ScrollableContainer>
+        <Background>
+          <Affix target={() => container}>
+            <TimelineAnt mode="alternate">
+              {TIMELINE_TEXT.map((text) => (
                 <TimelineAnt.Item color="black">
-                    <Text>
-                        {text[0]}<br/>{text[1]}
-                    </Text>
+                  <Text>
+                    {text[0]}
+                    <br />
+                    {text[1]}
+                  </Text>
                 </TimelineAnt.Item>
-            ))}
-            
-        </TimelineAnt>
-      </Container>
-    );
-  };
-  
+              ))}
+            </TimelineAnt>
+          </Affix>
+        </Background>
+      </ScrollableContainer>
+    </Container>
+  );
+};
