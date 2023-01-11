@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: flex-start;
-  margin-top: 15rem;
+  margin-top: ${spaces.xl};
 `;
 
 export const ConjuntoTextoComImagem = styled.div`
