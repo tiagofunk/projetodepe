@@ -30,6 +30,7 @@ export const Text = styled.div`
 export const ScrollableContainer = styled.div`
   height: 50rem;
   overflow-y: scroll;
+  overflow-x: hidden;
 `;
 
 export const Background = styled.div`
