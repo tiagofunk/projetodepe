@@ -1,4 +1,6 @@
+import { Whatsapp } from "components/Whatsapp/Whatsapp";
 import {
+  ButtonsContainer,
   Container,
   HeaderContainer,
   HeartIcon,
@@ -14,10 +16,13 @@ export const Header = () => {
         <Menu />
         <Title>Projeto de Pé</Title>
       </Container>
-      <StyledButton>
-        <HeartIcon />
-        Doação por pix
-      </StyledButton>
+      <ButtonsContainer>
+        <Whatsapp variant="button" />
+        <StyledButton>
+          <HeartIcon />
+          Doação por pix
+        </StyledButton>
+      </ButtonsContainer>
     </HeaderContainer>
   );
 };
