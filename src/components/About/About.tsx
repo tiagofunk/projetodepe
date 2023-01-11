@@ -34,7 +34,7 @@ export const About = () => {
   const VALUES_TEXT =
     "Determinação, empatia, parcerias, esperança e principalmente Fé no outro.";
 
-    const IMAGE_CAPTION = "Braços de uma mulher com tatuagens";
+  const IMAGE_CAPTION = "Braços de uma mulher com tatuagens";
 
   return (
     <Container>
