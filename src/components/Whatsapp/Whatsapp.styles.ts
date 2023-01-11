@@ -12,11 +12,13 @@ interface ContainerProps {
 const iconStyle = css`
   position: fixed;
   bottom: ${spaces.mp};
-  right: ${spaces.m};
+  right: ${spaces.lp};
   border-radius: 100%;
   padding: ${spaces.sp};
   background-color: #4dc247;
   height: fit-content;
+  z-index: 100;
+  border: none;
 `;
 
 const buttonStyle = css`
