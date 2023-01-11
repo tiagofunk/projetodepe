@@ -41,3 +41,7 @@ export const HeartIcon = styled(HeartFilled)`
   margin-right: ${spaces.xs};
   fill: ${colors.primary};
 `;
+
+export const ButtonsContainer = styled.div`
+  display: flex;
+`; 

@@ -1,3 +1,5 @@
+
+import { Whatsapp } from "components/Whatsapp/Whatsapp";
 import Carousel from "components/Carousel/Carousel";
 import Footer from "components/Footer/Footer";
 import { About } from "../../components/About/About";
@@ -13,6 +15,7 @@ export const Main = () => {
       <MainArea>
         <About />
         <VideoArea/>
+        <Whatsapp variant={"icon"} />
         <Activities/>
         <Timeline/>
       </MainArea>
