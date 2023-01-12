@@ -7,6 +7,7 @@ import { Container, MainArea } from "./Main.style";
 import { VideoArea } from "../../components/VideoArea/VideoArea";
 import { Activities } from "components/Activities/Activities";
 import { Timeline } from "../../components/Timeline/Timeline";
+import { Professionals } from "components/Professionals/Professionals";
 
 export const Main = () => {
   return (
@@ -18,6 +19,7 @@ export const Main = () => {
         <Whatsapp variant={"icon"} />
         <Activities/>
         <Timeline/>
+        <Professionals/>
       </MainArea>
       <Footer />
     </Container>
