@@ -24,6 +24,7 @@ export const BoxArea = styled.div`
   font-family: "Stick No Bills", sans-serif;
   justify-content: center;
   width: 100%;
+  flex-wrap: wrap;
 `;
 
 const StyleBox = css`
@@ -32,14 +33,13 @@ const StyleBox = css`
   border-bottom: 1px solid ${colors.primary};
 `;
 
-export const BoxPrimary = styled.div`
-  ${StyleBox}
-  background-color: ${colors.secondary};
-`;
+export interface BoxProps {
+  isEven: boolean;
+}
 
-export const BoxSecondary = styled.div`
+export const Box = styled.span<BoxProps>`
   ${StyleBox}
-  background-color: ${colors.terciary};
+  background-color: ${({isEven}) => isEven ? colors.secondary : colors.terciary };
 `;
 
 export const BoxImage = styled.img`
