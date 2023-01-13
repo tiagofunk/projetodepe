@@ -8,7 +8,6 @@ import {
   TextPixKey,
 } from "./QRCodeArea.style";
 import qrcode from "assets/img/QRCodeArea/qrcode.jpeg";
-import { ExternalLink } from "react-external-link";
 
 export const QRCodeArea = () => {
   const TITLE = "Gostaria de fazer uma doação ao projeto? É simples:";
@@ -32,7 +31,7 @@ export const QRCodeArea = () => {
         <TextBold>{TEXT}</TextBold>
         <TextRegular>
           Você também pode clicar{" "}
-          <ExternalLink href="http://campanhadobem.com/instituto-de-pe-saude-mental-na-favela">aqui</ExternalLink> para
+          <a href="http://campanhadobem.com/instituto-de-pe-saude-mental-na-favela" target="_blank"  rel="noreferrer">aqui</a> para
           acessar a vaquinha virtual do projeto.
         </TextRegular>
       </Area>
