@@ -8,6 +8,7 @@ import { VideoArea } from "../../components/VideoArea/VideoArea";
 import { Activities } from "components/Activities/Activities";
 import { Timeline } from "../../components/Timeline/Timeline";
 import { QRCodeArea } from "components/QRCodeArea/QRCodeArea";
+import { Professionals } from "components/Professionals/Professionals";
 
 export const Main = () => {
   return (
@@ -20,6 +21,7 @@ export const Main = () => {
         <Activities/>
         <Timeline/>
         <QRCodeArea/>
+        <Professionals/>
       </MainArea>
       <Footer />
     </Container>
