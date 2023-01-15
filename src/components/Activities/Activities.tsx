@@ -36,8 +36,8 @@ export const Activities = () => {
         <FirstColumn>Nome</FirstColumn>
         <SecondColumn>Atividade</SecondColumn>
       </Header>
-      {textTable.map((value) => (
-        <Line>
+      {textTable.map((value, index) => (
+        <Line key={index}>
           <FirstColumn>{value[0]}</FirstColumn>
           <SecondColumn>{value[1]}</SecondColumn>
         </Line>

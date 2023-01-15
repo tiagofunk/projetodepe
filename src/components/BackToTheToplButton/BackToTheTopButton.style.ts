@@ -5,8 +5,9 @@ const { spaces } = Theme;
 
 export const ScrollButton = styled.div`
   position: fixed;
-  bottom: calc( 0.85*${spaces.mp} );
-  right: calc( 3*${spaces.lp} );
+  cursor: pointer;
+  bottom: calc(${spaces.mp} + 7rem);
+  right: ${spaces.lp};
   border-radius: 100%;
   height: fit-content;
   z-index: 100;
