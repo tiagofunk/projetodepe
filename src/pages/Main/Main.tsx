@@ -6,6 +6,9 @@ import { Container, MainArea } from "./Main.style";
 import { VideoArea } from "../../components/VideoArea/VideoArea";
 import { Activities } from "components/Activities/Activities";
 import { Timeline } from "../../components/Timeline/Timeline";
+import { QRCodeArea } from "components/QRCodeArea/QRCodeArea";
+import { Professionals } from "components/Professionals/Professionals";
+import { Book } from "components/Book/Book";
 import { BackToTheTopButton } from "components/BackToTheToplButton/BackToTheTopButton";
 import { useRef } from "react";
 
@@ -20,8 +23,11 @@ export const Main = () => {
         <About />
         <VideoArea />
         <Whatsapp variant={"icon"} />
-        <Activities />
-        <Timeline />
+        <Activities/>
+        <Timeline/>
+        <QRCodeArea/>
+        <Professionals/>
+        <Book/>
       </MainArea>
       <Footer />
     </Container>
