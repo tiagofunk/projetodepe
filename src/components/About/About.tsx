@@ -41,8 +41,8 @@ export const About = () => {
       <Title>{TITLE}</Title>
       <ConjuntoTextoComImagem>
         <div>
-          {TEXT.map((text) => (
-            <Text>{text}</Text>
+          {TEXT.map((text, index) => (
+            <Text key={index}>{text}</Text>
           ))}
         </div>
         <Image src={foto_luana} alt={IMAGE_CAPTION} />
