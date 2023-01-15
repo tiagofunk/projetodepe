@@ -1,4 +1,3 @@
-
 import { Whatsapp } from "components/Whatsapp/Whatsapp";
 import Carousel from "components/Carousel/Carousel";
 import Footer from "components/Footer/Footer";
@@ -8,18 +7,21 @@ import { VideoArea } from "../../components/VideoArea/VideoArea";
 import { Activities } from "components/Activities/Activities";
 import { Timeline } from "../../components/Timeline/Timeline";
 import { BackToTheTopButton } from "components/BackToTheToplButton/BackToTheTopButton";
+import { useRef } from "react";
 
 export const Main = () => {
+  const mainRef = useRef<HTMLDivElement | null>(null);
+
   return (
-    <Container>
+    <Container ref={mainRef}>
       <Carousel />
       <MainArea>
-        <BackToTheTopButton/>
+        <BackToTheTopButton mainContainerRef={mainRef} />
         <About />
-        <VideoArea/>
+        <VideoArea />
         <Whatsapp variant={"icon"} />
-        <Activities/>
-        <Timeline/>
+        <Activities />
+        <Timeline />
       </MainArea>
       <Footer />
     </Container>

@@ -45,7 +45,6 @@ export const MVV = styled.div`
   align-items: flex-start;
   font-family: "Stick No Bills", sans-serif;
   width: 100%;
-  background-color: red;
   margin-top: ${spaces.xl};
 `;
 

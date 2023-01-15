@@ -8,5 +8,6 @@ export const MainArea = styled.div`
 
 export const Container = styled.div`
   margin-top: 7rem;
+  height: calc(100vh - 7rem);
   overflow-y: scroll;
 `;

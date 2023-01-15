@@ -85,19 +85,19 @@ export const Footer = () => {
       <BackgroundImage />
       <InnerContainer>
         <InfoArea>
-          {footerContent.map((section) => (
-            <Section>
+          {footerContent.map((section, index) => (
+            <Section key={index}>
               <Title>{section.title}</Title>
-              {section.content.map((line) => (
-                <LineContent>
+              {section.content.map((line, index) => (
+                <LineContent key={index}>
                   {line.image}
                   <Text>{line.text}</Text>
                   <Text>
-                    {line.textCombination?.map((item) => (
-                      <>
+                    {line.textCombination?.map((item, index) => (
+                      <div key={index}>
                         <Title>{item.initiator}</Title>
                         {item.text}
-                      </>
+                      </div>
                     ))}
                   </Text>
                 </LineContent>
