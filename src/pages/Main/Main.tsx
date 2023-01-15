@@ -9,6 +9,7 @@ import { Activities } from "components/Activities/Activities";
 import { Timeline } from "../../components/Timeline/Timeline";
 import { QRCodeArea } from "components/QRCodeArea/QRCodeArea";
 import { Professionals } from "components/Professionals/Professionals";
+import { Book } from "components/Book/Book";
 
 export const Main = () => {
   return (
@@ -22,6 +23,7 @@ export const Main = () => {
         <Timeline/>
         <QRCodeArea/>
         <Professionals/>
+        <Book/>
       </MainArea>
       <Footer />
     </Container>
