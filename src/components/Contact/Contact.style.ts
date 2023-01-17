@@ -1,6 +1,7 @@
-import styled from "styled-components";
+import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
-import { Input } from "antd";
+import { Input, Button, Select } from "antd";
+import TextArea from "antd/es/input/TextArea";
 
 const { colors, fonts, spaces } = Theme;
 
@@ -44,21 +45,27 @@ export const HorizontalBox = styled.div`
   align-items: flex-start;
 `;
 
+const InputArea = css`
+  font-size: ${fonts.size.smallLarge};
+  margin: ${spaces.none} ${spaces.m} ${spaces.none} ${spaces.m};
+`;
 export const MyInput = styled(Input)`
+  ${InputArea}
   width: 35rem;
   height: 3rem;
-  font-size: ${fonts.size.smallLarge};
-  margin: ${spaces.none} ${spaces.m} ${spaces.none} ${spaces.m};
 `;
 
-export const MessageInput = styled.textarea`
+export const MySelect = styled(Select)`
+  ${InputArea}
+`;
+
+export const MessageInput = styled(TextArea)`
   width: 74rem;
-  height: 15rem;
   font-size: ${fonts.size.smallLarge};
   margin: ${spaces.none} ${spaces.m} ${spaces.none} ${spaces.m};
 `;
 
-export const Button = styled.button`
+export const MyButton = styled(Button)`
   background-color: ${colors.buttonColor};
   color: ${colors.black};
   margin: ${spaces.mp} ${spaces.none} ${spaces.l} ${spaces.m};
