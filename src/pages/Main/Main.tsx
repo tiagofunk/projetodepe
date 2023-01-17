@@ -11,6 +11,7 @@ import { Professionals } from "components/Professionals/Professionals";
 import { Book } from "components/Book/Book";
 import { BackToTheTopButton } from "components/BackToTheToplButton/BackToTheTopButton";
 import { useRef } from "react";
+import { Contact } from "components/Contact/Contact";
 
 export const Main = () => {
   const mainRef = useRef<HTMLDivElement | null>(null);
@@ -25,6 +26,7 @@ export const Main = () => {
         <Whatsapp variant={"icon"} />
         <Activities/>
         <Timeline/>
+        <Contact/>
         <QRCodeArea/>
         <Professionals/>
         <Book/>
