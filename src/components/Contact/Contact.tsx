@@ -4,7 +4,7 @@ import {
   Title,
   Text,
   VerticalBox,
-  Input,
+  MyInput,
   MessageInput,
   Button,
 } from "./Contact.style";
@@ -25,21 +25,21 @@ export const Contact = () => {
         <HorizontalBox>
           <VerticalBox>
             <Text>{nameTitle}</Text>
-            <Input />
+            <MyInput/>
           </VerticalBox>
           <VerticalBox>
             <Text>{emailTitle}</Text>
-            <Input />
+            <MyInput />
           </VerticalBox>
         </HorizontalBox>
         <HorizontalBox>
           <VerticalBox>
             <Text>{subjectTitle}</Text>
-            <Input />
+            <MyInput />
           </VerticalBox>
           <VerticalBox>
             <Text>{phoneTitle}</Text>
-            <Input />
+            <MyInput type="phone"/>
           </VerticalBox>
         </HorizontalBox>
         <VerticalBox>

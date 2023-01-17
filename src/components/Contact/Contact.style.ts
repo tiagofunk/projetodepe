@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import Theme from "theme/Theme";
+import { Input } from "antd";
 
 const { colors, fonts, spaces } = Theme;
 
@@ -43,7 +44,7 @@ export const HorizontalBox = styled.div`
   align-items: flex-start;
 `;
 
-export const Input = styled.input`
+export const MyInput = styled(Input)`
   width: 35rem;
   height: 3rem;
   font-size: ${fonts.size.smallLarge};
