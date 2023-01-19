@@ -20,21 +20,9 @@ export const Title = styled.div`
   margin-bottom: ${spaces.mp};
 `;
 
-export const Text = styled.div`
-  display: block;
-  color: ${colors.black};
-  font-size: ${fonts.size.smallLarge};
-  font-weight: ${fonts.weight.bold};
-  font-family: "Stick No Bills", sans-serif;
-  text-align: justify;
-  margin: ${spaces.mp} ${spaces.m} ${spaces.xxs} ${spaces.mp};
-`;
-
 export const VerticalBox = styled.div`
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
-  justify-content: center;
   background-color: ${colors.secondary};
   width: 100%;
 `;
@@ -45,9 +33,29 @@ export const HorizontalBox = styled.div`
   align-items: flex-start;
 `;
 
+export const Text = styled.div`
+  display: block;
+  color: ${colors.black};
+  font-size: ${fonts.size.smallLarge};
+  font-weight: ${fonts.weight.bold};
+  font-family: "Stick No Bills", sans-serif;
+  text-align: justify;
+  margin: ${spaces.mp} ${spaces.m} ${spaces.xxs} ${spaces.mp};
+`;
+
+export const ErrorText = styled.div`
+  display: block;
+  color: red;
+  font-size: ${fonts.size.smallLarge};
+  font-weight: ${fonts.weight.bold};
+  font-family: "Stick No Bills", sans-serif;
+  text-align: justify;
+  margin: ${spaces.none} ${spaces.m} ${spaces.xxs} ${spaces.mp};
+`;
+
 const InputArea = css`
   font-size: ${fonts.size.smallLarge};
-  margin: ${spaces.none} ${spaces.m} ${spaces.none} ${spaces.m};
+  margin: ${spaces.none} ${spaces.m} ${spaces.s} ${spaces.m};
 `;
 export const MyInput = styled(Input)`
   ${InputArea}
