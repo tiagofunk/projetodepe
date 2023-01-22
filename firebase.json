@@ -1,0 +1,11 @@
+{
+  "hosting": {
+    "public": "build",
+    "site": "institutodepe",
+    "ignore": [
+      "firebase.json",
+      "**/.*",
+      "**/node_modules/**"
+    ]
+  }
+}

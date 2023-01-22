@@ -5,6 +5,8 @@
 /.pnp
 /node_modules
 yarn.lock
+.env
+/.firebase
 
 # testing
 /coverage
