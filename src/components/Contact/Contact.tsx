@@ -49,7 +49,6 @@ export const Contact = () => {
   });
 
   const onFinish = () => {
-    console.log("foi");
     validateValues();
   };
 
@@ -114,8 +113,8 @@ export const Contact = () => {
 
   function validateMessage(message: any) {
     if( message === undefined ) return false;
-    let messageRegex = new RegExp("^[0-9a-zA-Z]+$");
-    return messageRegex.test(message);
+    if( message.length === 0 ) return false;
+    return true;
   }
 
   function getFieldName() {
