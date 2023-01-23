@@ -107,6 +107,19 @@ export const Contact = () => {
   function validateValues() {
     let isValid = true;
 
+    if( validFields() )
+      isValid = false
+    if( validVoluntaryFieldsIfNecessary() )
+      isValid = false;
+    if( validWantToBeAttendedFieldsIfNecessary() )
+      isValid = false;
+
+    return isValid;
+  }
+
+  function validFields(){
+    let isValid = true;
+
     if (validate(formValues.name, regexName, "name", nameFailMessage))
       isValid = false;
     if (validate(formValues.email, regexEmail, "email", emailFailMessage))
@@ -117,11 +130,7 @@ export const Contact = () => {
       isValid = false;
     if( validate(formValues.message,regexNotEmptyString,"message",messageFailMessage) )
       isValid = false;
-    if( validVoluntaryFieldsIfNecessary() )
-      isValid = false;
-    if( validWantToBeAttendedFieldsIfNecessary() )
-      isValid = false;
-
+    
     return isValid;
   }
 
