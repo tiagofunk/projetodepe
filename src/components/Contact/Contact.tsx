@@ -216,42 +216,22 @@ export const Contact = () => {
     );
   }
 
-  function getFieldSubject() {
+  function getFieldCheck(title:string, field:string,options:Array<string>){
     return (
       <>
-        <Text>{subjectTitle}</Text>
+        <Text>{title}</Text>
         <MySelect
           style={{ width: "35rem", textAlign: "left" }}
           onChange={(event) =>
-            setFormValues({ ...formValues, subject: `${event}` || "" })
+            setFormValues({ ...formValues, [field]: `${event}` || "" })
           }
-          value={formValues.subject}
+          value={formValues[field as keyof typeof formValues]}
         >
-          {optionsSubject.map((op) => (
+          {options.map((op) => (
             <Option value={op}>{op}</Option>
           ))}
         </MySelect>
-        {errors.subject && <ErrorText>{errors.subject}</ErrorText>}
-      </>
-    );
-  }
-
-  function getFieldServiceType() {
-    return (
-      <>
-        <Text>{serviceTypeTitle}</Text>
-        <MySelect
-          style={{ width: "35rem", textAlign: "left" }}
-          onChange={(event) =>
-            setFormValues({ ...formValues, serviceType: `${event}` || "" })
-          }
-          value={formValues.serviceType}
-        >
-          {optionsTypeService.map((op) => (
-            <Option value={op}>{op}</Option>
-          ))}
-        </MySelect>
-        {errors.serviceType && <ErrorText>{errors.serviceType}</ErrorText>}
+        {errors[field as keyof typeof errors] && <ErrorText>{errors[field as keyof typeof errors]}</ErrorText>}
       </>
     );
   }
@@ -305,7 +285,7 @@ export const Contact = () => {
     return (
       <>
         <HorizontalBox>
-          <VerticalBox>{getFieldServiceType()}</VerticalBox>
+          <VerticalBox>{getFieldCheck(serviceTypeTitle, "serviceType",optionsTypeService)}</VerticalBox>
           <VerticalBox>
             {getField(daysAndTimesAvailableTitle, "daysAndTimesAvailable")}
           </VerticalBox>
@@ -338,7 +318,7 @@ export const Contact = () => {
             <VerticalBox>{getField(emailTitle, "email")}</VerticalBox>
           </HorizontalBox>
           <HorizontalBox>
-            <VerticalBox>{getFieldSubject()}</VerticalBox>
+            <VerticalBox>{getFieldCheck(subjectTitle,"subject",optionsSubject)}</VerticalBox>
             <VerticalBox>{getField(phoneTitle, "phone")}</VerticalBox>
           </HorizontalBox>
           {getOptionalFields()}
