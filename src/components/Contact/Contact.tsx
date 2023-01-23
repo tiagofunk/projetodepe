@@ -29,6 +29,13 @@ export const Contact = () => {
   const messageRows = 4;
   const buttonText = "Enviar Mensagem";
 
+  const occupationAreaTitle = "Área de atuação";
+  const occupationAreaFailMessage = "Não pode estar vazio";
+  const howYouWantToContributeTitle = "Como deseja contribuir?";
+  const howYouWantToContributeFailMessage = "Não pode estar vazio";
+  const daysAndTimesAvailableTitle = "Dia e horário disponíveis";
+  const daysAndTimesAvailableFailMessage = "Não pode estar vazio";
+
   const formId = "contact-form";
   const formSubmitLink = "https://formsubmit.co/";
   const formSubmitHash = "4bf6dc77a30a97a4dcd258f7001abdbc"; //localhost:3000
@@ -48,12 +55,15 @@ export const Contact = () => {
   ];
 
   const errorsMessages = {
-    name:"",
-    email:"",
-    subject:"",
-    phone:"",
-    message:""
-  }
+    name: "",
+    email: "",
+    subject: "",
+    phone: "",
+    message: "",
+    occupationArea: "",
+    howYouWantToContribute: "",
+    daysAndTimesAvailable: "",
+  };
 
   const [errors, setErrors] = useState({
     name: "",
@@ -61,6 +71,9 @@ export const Contact = () => {
     subject: "",
     phone: "",
     message: "",
+    occupationArea: "",
+    howYouWantToContribute: "",
+    daysAndTimesAvailable: "",
   });
   const [formValues, setFormValues] = useState({
     name: "",
@@ -68,6 +81,9 @@ export const Contact = () => {
     subject: "",
     phone: "",
     message: "",
+    occupationArea: "",
+    howYouWantToContribute: "",
+    daysAndTimesAvailable: "",
   });
 
   const onFinish = () => {
@@ -80,29 +96,48 @@ export const Contact = () => {
     let isValid = true;
 
     isValid = validate(formValues.name, regexName, "name", nameFailMessage);
-    isValid = validate(formValues.email, regexEmail,"email",emailFailMessage);
+    isValid = validate(formValues.email, regexEmail, "email", emailFailMessage);
     isValid = validate(formValues.subject,regexNotEmptyString,"subject",subjectFailMessage);
-    isValid = validate(formValues.phone, regexPhone, "phone",phoneFailMessage);
+    isValid = validate(formValues.phone, regexPhone, "phone", phoneFailMessage);
     isValid = validate(formValues.message,regexNotEmptyString,"message",messageFailMessage);
-    console.log(isValid);
-    
+    isValid = validVoluntaryFieldsIfNecessary();
+
     return isValid;
   }
 
-  function checkRegex(fieldValue: string, regex: string){
-    let regexObject = new RegExp(regex);
-    return regexObject.test(fieldValue); 
+  function validVoluntaryFieldsIfNecessary(){
+    let isValid = true;
+    if( formValues.subject==="Voluntário" ){
+      isValid = validate(formValues.occupationArea, regexNotEmptyString, "occupationArea", occupationAreaFailMessage);
+      isValid = validate(formValues.howYouWantToContribute, regexNotEmptyString, "howYouWantToContribute", howYouWantToContributeFailMessage);
+      isValid = validate(formValues.daysAndTimesAvailable, regexNotEmptyString, "daysAndTimesAvailable", daysAndTimesAvailableFailMessage);
+    }
+    return isValid;
   }
 
-  function validate(fieldValue: string, regex: string, field:string, errorMessage: string) {
+  function checkRegex(fieldValue: string, regex: string) {
+    let regexObject = new RegExp(regex);
+    return regexObject.test(fieldValue);
+  }
+
+  function validate(
+    fieldValue: string,
+    regex: string,
+    field: string,
+    errorMessage: string
+  ) {
     let result = checkRegex(fieldValue, regex);
-    if( !result ){
+    if (!result) {
       errorsMessages[field as keyof typeof errorsMessages] = errorMessage;
+    }
+
+    if( field==="occupationArea"){
+      console.log(errorsMessages);
     }
     return result;
   }
 
-  function updateErrors(){
+  function updateErrors() {
     setErrors({
       ...errors,
       name: errorsMessages.name,
@@ -110,14 +145,15 @@ export const Contact = () => {
       subject: errorsMessages.subject,
       phone: errorsMessages.phone,
       message: errorsMessages.message,
+      occupationArea: errorsMessages.occupationArea,
+      howYouWantToContribute: errorsMessages.howYouWantToContribute,
+      daysAndTimesAvailable: errorsMessages.daysAndTimesAvailable,
     });
   }
 
-  function realizeSubmit(isValid:boolean){
+  function realizeSubmit(isValid: boolean) {
     if (isValid) {
-      const formElement = document.getElementById(
-        formId
-      ) as HTMLFormElement;
+      const formElement = document.getElementById(formId) as HTMLFormElement;
       formElement?.submit();
     }
   }
@@ -185,6 +221,29 @@ export const Contact = () => {
     );
   }
 
+  function getVoluntaryFields() {
+    return (
+      <>
+        <VerticalBox>
+          <HorizontalBox>
+            <VerticalBox>
+              {getField(occupationAreaTitle, "occupationArea")}
+            </VerticalBox>
+            <VerticalBox>
+              {getField(howYouWantToContributeTitle, "howYouWantToContribute")}
+            </VerticalBox>
+          </HorizontalBox>
+          <VerticalBox>
+            {getField(daysAndTimesAvailableTitle, "daysAndTimesAvailable")}
+          </VerticalBox>
+        </VerticalBox>
+      </>
+    );
+  }
+  function getOptionalFields() {
+    return <>{formValues.subject==="Voluntário" && getVoluntaryFields()}</>;
+  }
+
   return (
     <Container>
       <Title>{title}</Title>
@@ -203,6 +262,7 @@ export const Contact = () => {
             <VerticalBox>{getFieldSubject()}</VerticalBox>
             <VerticalBox>{getField(phoneTitle, "phone")}</VerticalBox>
           </HorizontalBox>
+          {getOptionalFields()}
           <VerticalBox>{getFieldMessage()}</VerticalBox>
           <VerticalBox>{getSubmitButton()}</VerticalBox>
         </VerticalBox>
