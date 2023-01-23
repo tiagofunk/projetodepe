@@ -1,4 +1,3 @@
-import { Form } from "antd";
 import { useState } from "react";
 import {
   Container,
@@ -29,7 +28,7 @@ export const Contact = () => {
   const messageFailMessage = "Não se esqueça da mensagem";
   const messageRows = 4;
   const buttonText = "Enviar Mensagem";
-  const formSubmitHash = "4bf6dc77a30a97a4dcd258f7001abdbc";
+  const formSubmitHash = "4bf6dc77a30a97a4dcd258f7001abdbc"; //localhost:3000
 
   const options = [
     "Voluntário",
@@ -40,7 +39,6 @@ export const Contact = () => {
     "Contatos gerais",
   ];
 
-  const [form] = Form.useForm();
   const [errors, setErrors] = useState({
     name: "",
     email: "",
@@ -48,9 +46,16 @@ export const Contact = () => {
     phone: "",
     message: "",
   });
+  const [formValues, setFormValues] = useState({
+    name: "",
+    email: "",
+    subject: "",
+    phone: "",
+    message: "",
+  });
+
 
   const onFinish = () => {
-    console.log("foi");
     validateValues();
   };
 
@@ -62,23 +67,23 @@ export const Contact = () => {
       messageError = "";
     let isValid = true;
 
-    if (!validateName(form.getFieldValue(nameTitle))) {
+    if (!validateName(formValues.name)) {
       nameError = nameFailMessage;
       isValid = false;
     }
-    if (!validateEmail(form.getFieldValue(emailTitle))) {
+    if (!validateEmail(formValues.email)) {
       emailError = emailFailMessage;
       isValid = false;
     }
-    if (!validateSubject(form.getFieldValue(subjectTitle))) {
+    if (!validateSubject(formValues.subject)) {
       subjectError = subjectFailMessage;
       isValid = false;
     }
-    if (!validatePhone(form.getFieldValue(phoneTitle))) {
+    if (!validatePhone(formValues.phone)) {
       phoneError = phoneFailMessage;
       isValid = false;
     }
-    if (!validateMessage(form.getFieldValue(messageTitle))) {
+    if (!validateMessage(formValues.message)) {
       messageError = messageFailMessage;
       isValid = false;
     }
@@ -91,8 +96,10 @@ export const Contact = () => {
       message: messageError,
     });
     if (isValid) {
-      form.submit();
-      console.log("Enviou");
+      const formElement = document.getElementById(
+        "contact-form"
+      ) as HTMLFormElement;
+      formElement?.submit();
     }
   }
 
@@ -127,26 +134,18 @@ export const Contact = () => {
     return true;
   }
 
-  function getFieldName() {
+  function getField(nameTitle: string, nameField: string) {
     return (
       <>
         <Text>{nameTitle}</Text>
-        <Form.Item name={nameTitle}>
-          <MyInput />
-        </Form.Item>
+        <MyInput
+          name={nameTitle}
+          onChange={(event) =>
+            setFormValues({ ...formValues, [nameField]: event.target.value })
+          }
+          value={formValues[nameField as keyof typeof formValues]}
+        />
         {errors.name && <ErrorText>{errors.name}</ErrorText>}
-      </>
-    );
-  }
-
-  function getFieldEmail() {
-    return (
-      <>
-        <Text>{emailTitle}</Text>
-        <Form.Item name={emailTitle}>
-          <MyInput />
-        </Form.Item>
-        {errors.email && <ErrorText>{errors.email}</ErrorText>}
       </>
     );
   }
@@ -155,26 +154,18 @@ export const Contact = () => {
     return (
       <>
         <Text>{subjectTitle}</Text>
-        <Form.Item name={subjectTitle}>
-          <MySelect style={{ width: "35rem", textAlign: "left" }}>
-            {options.map((op) => (
-              <Option value={op}>{op}</Option>
-            ))}
-          </MySelect>
-        </Form.Item>
+        <MySelect
+          style={{ width: "35rem", textAlign: "left" }}
+          onChange={(event) =>
+            setFormValues({ ...formValues, subject: `${event}` || "" })
+          }
+          value={formValues.subject}
+        >
+          {options.map((op) => (
+            <Option value={op}>{op}</Option>
+          ))}
+        </MySelect>
         {errors.subject && <ErrorText>{errors.subject}</ErrorText>}
-      </>
-    );
-  }
-
-  function getFieldPhone() {
-    return (
-      <>
-        <Text>{phoneTitle}</Text>
-        <Form.Item name={phoneTitle}>
-          <MyInput />
-        </Form.Item>
-        {errors.phone && <ErrorText>{errors.phone}</ErrorText>}
       </>
     );
   }
@@ -183,9 +174,14 @@ export const Contact = () => {
     return (
       <>
         <Text>{messageTitle}</Text>
-        <Form.Item name={messageTitle}>
-          <MessageInput rows={messageRows} />
-        </Form.Item>
+        <MessageInput
+          rows={messageRows}
+          name={messageTitle}
+          onChange={(event) =>
+            setFormValues({ ...formValues, message: event.target.value })
+          }
+          value={formValues.message}
+        />
         {errors.message && <ErrorText>{errors.message}</ErrorText>}
       </>
     );
@@ -194,7 +190,7 @@ export const Contact = () => {
   function getSubmitButton() {
     return (
       <>
-        <MyButton htmlType="submit" onClick={onFinish}>{buttonText}</MyButton>
+        <MyButton onClick={onFinish}>{buttonText}</MyButton>
       </>
     );
   }
@@ -202,25 +198,25 @@ export const Contact = () => {
   return (
     <Container>
       <Title>{title}</Title>
-      <Form
-        form={form}
+      <form
+        id="contact-form"
         target="_blank"
-        action="https://formsubmit.co/rsramalhovf@gmail.com"
+        action={"https://formsubmit.co/" + formSubmitHash}
         method="POST"
       >
         <VerticalBox>
           <HorizontalBox>
-            <VerticalBox>{getFieldName()}</VerticalBox>
-            {/* <VerticalBox>{getFieldEmail()}</VerticalBox> */}
+            <VerticalBox>{getField(nameTitle, "name")}</VerticalBox>
+            <VerticalBox>{getField(emailTitle, "email")}</VerticalBox>
           </HorizontalBox>
           <HorizontalBox>
-            {/* <VerticalBox>{getFieldSubject()}</VerticalBox>
-            <VerticalBox>{getFieldPhone()}</VerticalBox> */}
+            <VerticalBox>{getFieldSubject()}</VerticalBox>
+            <VerticalBox>{getField(phoneTitle, "phone")}</VerticalBox>
           </HorizontalBox>
-          {/* <VerticalBox>{getFieldMessage()}</VerticalBox> */}
+          <VerticalBox>{getFieldMessage()}</VerticalBox>
           <VerticalBox>{getSubmitButton()}</VerticalBox>
         </VerticalBox>
-      </Form>
+      </form>
     </Container>
   );
 };
