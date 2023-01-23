@@ -28,9 +28,17 @@ export const Contact = () => {
   const messageFailMessage = "Não se esqueça da mensagem";
   const messageRows = 4;
   const buttonText = "Enviar Mensagem";
+
+  const formId = "contact-form";
+  const formSubmitLink = "https://formsubmit.co/";
   const formSubmitHash = "4bf6dc77a30a97a4dcd258f7001abdbc"; //localhost:3000
 
-  const options = [
+  const regexName = "^[0-9a-zA-Z ]+$";
+  const regexEmail = "^[0-9a-zA-Z._]+@[0-9a-zA-Z]+\\.[a-zA-Z]{1,3}$";
+  const regexPhone = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$";
+  const regexNotEmptyString = "^(?!\\s*$).+";
+
+  const optionsSubject = [
     "Voluntário",
     "Sugestões/reclamações",
     "Quero me consultar",
@@ -38,6 +46,14 @@ export const Contact = () => {
     "Dúvidas",
     "Contatos gerais",
   ];
+
+  const errorsMessages = {
+    name:"",
+    email:"",
+    subject:"",
+    phone:"",
+    message:""
+  }
 
   const [errors, setErrors] = useState({
     name: "",
@@ -54,85 +70,56 @@ export const Contact = () => {
     message: "",
   });
 
-
   const onFinish = () => {
-    validateValues();
+    let isValid = validateValues();
+    updateErrors();
+    realizeSubmit(isValid);
   };
 
   function validateValues() {
-    let nameError = "",
-      emailError = "",
-      subjectError = "",
-      phoneError = "",
-      messageError = "";
     let isValid = true;
 
-    if (!validateName(formValues.name)) {
-      nameError = nameFailMessage;
-      isValid = false;
+    isValid = validate(formValues.name, regexName, "name", nameFailMessage);
+    isValid = validate(formValues.email, regexEmail,"email",emailFailMessage);
+    isValid = validate(formValues.subject,regexNotEmptyString,"subject",subjectFailMessage);
+    isValid = validate(formValues.phone, regexPhone, "phone",phoneFailMessage);
+    isValid = validate(formValues.message,regexNotEmptyString,"message",messageFailMessage);
+    console.log(isValid);
+    
+    return isValid;
+  }
+
+  function checkRegex(fieldValue: string, regex: string){
+    let regexObject = new RegExp(regex);
+    return regexObject.test(fieldValue); 
+  }
+
+  function validate(fieldValue: string, regex: string, field:string, errorMessage: string) {
+    let result = checkRegex(fieldValue, regex);
+    if( !result ){
+      errorsMessages[field as keyof typeof errorsMessages] = errorMessage;
     }
-    if (!validateEmail(formValues.email)) {
-      emailError = emailFailMessage;
-      isValid = false;
-    }
-    if (!validateSubject(formValues.subject)) {
-      subjectError = subjectFailMessage;
-      isValid = false;
-    }
-    if (!validatePhone(formValues.phone)) {
-      phoneError = phoneFailMessage;
-      isValid = false;
-    }
-    if (!validateMessage(formValues.message)) {
-      messageError = messageFailMessage;
-      isValid = false;
-    }
+    return result;
+  }
+
+  function updateErrors(){
     setErrors({
       ...errors,
-      name: nameError,
-      email: emailError,
-      subject: subjectError,
-      phone: phoneError,
-      message: messageError,
+      name: errorsMessages.name,
+      email: errorsMessages.email,
+      subject: errorsMessages.subject,
+      phone: errorsMessages.phone,
+      message: errorsMessages.message,
     });
+  }
+
+  function realizeSubmit(isValid:boolean){
     if (isValid) {
       const formElement = document.getElementById(
-        "contact-form"
+        formId
       ) as HTMLFormElement;
       formElement?.submit();
     }
-  }
-
-  function validateName(name: any) {
-    if (name === undefined) return false;
-    let nameRegex = new RegExp("^[0-9a-zA-Z ]+$");
-    return nameRegex.test(name);
-  }
-
-  function validateEmail(email: any) {
-    if (email === undefined) return false;
-    let emailRegex = new RegExp("^[0-9a-zA-Z.]+@[0-9a-zA-Z]+\\.[a-zA-Z]{0,3}$");
-    return emailRegex.test(email);
-  }
-
-  function validateSubject(subject: any) {
-    if (subject === undefined) return false;
-    if (subject.length === 0) return false;
-    return true;
-  }
-
-  function validatePhone(phone: any) {
-    if (phone === undefined) return false;
-    let phoneRegex = new RegExp(
-      "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$"
-    );
-    return phoneRegex.test(phone);
-  }
-
-  function validateMessage(message: any) {
-    if (message === undefined) return false;
-    if (message.length === 0) return false;
-    return true;
   }
 
   function getField(nameTitle: string, nameField: string) {
@@ -146,7 +133,9 @@ export const Contact = () => {
           }
           value={formValues[nameField as keyof typeof formValues]}
         />
-        {errors[nameField as keyof typeof errors] && <ErrorText>{errors[nameField as keyof typeof errors]}</ErrorText>}
+        {errors[nameField as keyof typeof errors] && (
+          <ErrorText>{errors[nameField as keyof typeof errors]}</ErrorText>
+        )}
       </>
     );
   }
@@ -162,7 +151,7 @@ export const Contact = () => {
           }
           value={formValues.subject}
         >
-          {options.map((op) => (
+          {optionsSubject.map((op) => (
             <Option value={op}>{op}</Option>
           ))}
         </MySelect>
@@ -200,9 +189,9 @@ export const Contact = () => {
     <Container>
       <Title>{title}</Title>
       <form
-        id="contact-form"
+        id={formId}
         target="_blank"
-        action={"https://formsubmit.co/" + formSubmitHash}
+        action={formSubmitLink + formSubmitHash}
         method="POST"
       >
         <VerticalBox>
