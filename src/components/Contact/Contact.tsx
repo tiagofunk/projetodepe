@@ -35,6 +35,8 @@ export const Contact = () => {
   const howYouWantToContributeFailMessage = "Não pode estar vazio";
   const daysAndTimesAvailableTitle = "Dia e horário disponíveis";
   const daysAndTimesAvailableFailMessage = "Não pode estar vazio";
+  const serviceTypeTitle = "Tipo de serviço";
+  const serviceTypeFailMessage = "Tipo de serviço é necessário";
 
   const formId = "contact-form";
   const formSubmitLink = "https://formsubmit.co/";
@@ -45,14 +47,21 @@ export const Contact = () => {
   const regexPhone = "^\\(?[1-9]{2}\\)? ?(?:[2-8]|9[1-9])[0-9]{3}\\-?[0-9]{4}$";
   const regexNotEmptyString = "^(?!\\s*$).+";
 
+  const voluntary = "Voluntário";
+  const wantToBeAttended = "Quero ser atendido";
+  const donations = "Doações";
+  const doubts = "Dúvidas";
+  const suggestionsComplaints = "Sugestões/reclamações";
+
   const optionsSubject = [
-    "Voluntário",
-    "Sugestões/reclamações",
-    "Quero me consultar",
-    "Doações",
-    "Dúvidas",
-    "Contatos gerais",
+    voluntary,
+    wantToBeAttended,
+    donations,
+    doubts,
+    suggestionsComplaints,
   ];
+
+  const optionsTypeService = ["Psicologa", "Assistência social", "Cidadania"];
 
   const errorsMessages = {
     name: "",
@@ -63,6 +72,7 @@ export const Contact = () => {
     occupationArea: "",
     howYouWantToContribute: "",
     daysAndTimesAvailable: "",
+    serviceType: "",
   };
 
   const [errors, setErrors] = useState({
@@ -74,6 +84,7 @@ export const Contact = () => {
     occupationArea: "",
     howYouWantToContribute: "",
     daysAndTimesAvailable: "",
+    serviceType: "",
   });
   const [formValues, setFormValues] = useState({
     name: "",
@@ -84,6 +95,7 @@ export const Contact = () => {
     occupationArea: "",
     howYouWantToContribute: "",
     daysAndTimesAvailable: "",
+    serviceType: "",
   });
 
   const onFinish = () => {
@@ -95,22 +107,44 @@ export const Contact = () => {
   function validateValues() {
     let isValid = true;
 
-    isValid = validate(formValues.name, regexName, "name", nameFailMessage);
-    isValid = validate(formValues.email, regexEmail, "email", emailFailMessage);
-    isValid = validate(formValues.subject,regexNotEmptyString,"subject",subjectFailMessage);
-    isValid = validate(formValues.phone, regexPhone, "phone", phoneFailMessage);
-    isValid = validate(formValues.message,regexNotEmptyString,"message",messageFailMessage);
-    isValid = validVoluntaryFieldsIfNecessary();
+    if (validate(formValues.name, regexName, "name", nameFailMessage))
+      isValid = false;
+    if (validate(formValues.email, regexEmail, "email", emailFailMessage))
+      isValid = false;
+    if (validate( formValues.subject, regexNotEmptyString,"subject",subjectFailMessage))
+      isValid = false;
+    if( validate(formValues.phone, regexPhone, "phone", phoneFailMessage) )
+      isValid = false;
+    if( validate(formValues.message,regexNotEmptyString,"message",messageFailMessage) )
+      isValid = false;
+    if( validVoluntaryFieldsIfNecessary() )
+      isValid = false;
+    if( validWantToBeAttendedFieldsIfNecessary() )
+      isValid = false;
 
     return isValid;
   }
 
-  function validVoluntaryFieldsIfNecessary(){
+  function validVoluntaryFieldsIfNecessary() {
     let isValid = true;
-    if( formValues.subject==="Voluntário" ){
-      isValid = validate(formValues.occupationArea, regexNotEmptyString, "occupationArea", occupationAreaFailMessage);
-      isValid = validate(formValues.howYouWantToContribute, regexNotEmptyString, "howYouWantToContribute", howYouWantToContributeFailMessage);
-      isValid = validate(formValues.daysAndTimesAvailable, regexNotEmptyString, "daysAndTimesAvailable", daysAndTimesAvailableFailMessage);
+    if (formValues.subject === voluntary) {
+      if( validate(formValues.occupationArea,regexNotEmptyString,"occupationArea",occupationAreaFailMessage) )
+        isValid = false;
+      if( validate(formValues.howYouWantToContribute,regexNotEmptyString,"howYouWantToContribute",howYouWantToContributeFailMessage))
+        isValid = false;
+      if( validate( formValues.daysAndTimesAvailable,regexNotEmptyString,"daysAndTimesAvailable",daysAndTimesAvailableFailMessage)) 
+        isValid = false;
+    }
+    return isValid;
+  }
+
+  function validWantToBeAttendedFieldsIfNecessary() {
+    let isValid = true;
+    if (formValues.subject === wantToBeAttended) {
+      if( validate( formValues.daysAndTimesAvailable, regexNotEmptyString,"daysAndTimesAvailable",daysAndTimesAvailableFailMessage))
+        isValid = false;
+      if( validate( formValues.serviceType,regexNotEmptyString,"serviceType",serviceTypeFailMessage))
+          isValid = false;
     }
     return isValid;
   }
@@ -130,10 +164,6 @@ export const Contact = () => {
     if (!result) {
       errorsMessages[field as keyof typeof errorsMessages] = errorMessage;
     }
-
-    if( field==="occupationArea"){
-      console.log(errorsMessages);
-    }
     return result;
   }
 
@@ -148,6 +178,7 @@ export const Contact = () => {
       occupationArea: errorsMessages.occupationArea,
       howYouWantToContribute: errorsMessages.howYouWantToContribute,
       daysAndTimesAvailable: errorsMessages.daysAndTimesAvailable,
+      serviceType: errorsMessages.serviceType,
     });
   }
 
@@ -196,6 +227,26 @@ export const Contact = () => {
     );
   }
 
+  function getFieldServiceType() {
+    return (
+      <>
+        <Text>{serviceTypeTitle}</Text>
+        <MySelect
+          style={{ width: "35rem", textAlign: "left" }}
+          onChange={(event) =>
+            setFormValues({ ...formValues, serviceType: `${event}` || "" })
+          }
+          value={formValues.serviceType}
+        >
+          {optionsTypeService.map((op) => (
+            <Option value={op}>{op}</Option>
+          ))}
+        </MySelect>
+        {errors.serviceType && <ErrorText>{errors.serviceType}</ErrorText>}
+      </>
+    );
+  }
+
   function getFieldMessage() {
     return (
       <>
@@ -240,8 +291,27 @@ export const Contact = () => {
       </>
     );
   }
+
+  function getMedicalAppointmentFields() {
+    return (
+      <>
+        <HorizontalBox>
+          <VerticalBox>{getFieldServiceType()}</VerticalBox>
+          <VerticalBox>
+            {getField(daysAndTimesAvailableTitle, "daysAndTimesAvailable")}
+          </VerticalBox>
+        </HorizontalBox>
+      </>
+    );
+  }
   function getOptionalFields() {
-    return <>{formValues.subject==="Voluntário" && getVoluntaryFields()}</>;
+    return (
+      <>
+        {(formValues.subject === voluntary && getVoluntaryFields()) ||
+          (formValues.subject === wantToBeAttended &&
+            getMedicalAppointmentFields())}
+      </>
+    );
   }
 
   return (
