@@ -117,6 +117,7 @@ export const Contact = () => {
 
   function validateSubject(subject: any) {
     if (subject === undefined) return false;
+    if (subject.length === 0) return false;
     return true;
   }
 
@@ -145,7 +146,7 @@ export const Contact = () => {
           }
           value={formValues[nameField as keyof typeof formValues]}
         />
-        {errors.name && <ErrorText>{errors.name}</ErrorText>}
+        {errors[nameField as keyof typeof errors] && <ErrorText>{errors[nameField as keyof typeof errors]}</ErrorText>}
       </>
     );
   }
