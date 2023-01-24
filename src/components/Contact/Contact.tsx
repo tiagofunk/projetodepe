@@ -37,6 +37,10 @@ export const Contact = () => {
   const daysAndTimesAvailableFailMessage = "Não pode estar vazio";
   const serviceTypeTitle = "Tipo de serviço";
   const serviceTypeFailMessage = "Tipo de serviço é necessário";
+  const donationTypeTitle = "Tipo de doação";
+  const donationTypeFailMessage = "Tipo de doação é necessário";
+  const quantityDonationTitle = "Quantidade";
+  const quantityDonationFailMessage = "Não pode ficar vazio";
 
   const formId = "contact-form";
   const formSubmitLink = "https://formsubmit.co/";
@@ -63,6 +67,8 @@ export const Contact = () => {
 
   const optionsTypeService = ["Psicologa", "Assistência social", "Cidadania"];
 
+  const optionsDonations = ["Móveis","Eletrodomesticos","Roupas","Instrumentos"];
+
   const errorsMessages = {
     name: "",
     email: "",
@@ -73,6 +79,8 @@ export const Contact = () => {
     howYouWantToContribute: "",
     daysAndTimesAvailable: "",
     serviceType: "",
+    donationType:"",
+    quantityDonation:""
   };
 
   const [errors, setErrors] = useState({
@@ -85,6 +93,8 @@ export const Contact = () => {
     howYouWantToContribute: "",
     daysAndTimesAvailable: "",
     serviceType: "",
+    donationType:"",
+    quantityDonation:""
   });
   const [formValues, setFormValues] = useState({
     name: "",
@@ -96,6 +106,8 @@ export const Contact = () => {
     howYouWantToContribute: "",
     daysAndTimesAvailable: "",
     serviceType: "",
+    donationType:"",
+    quantityDonation:""
   });
 
   const onFinish = () => {
@@ -112,6 +124,8 @@ export const Contact = () => {
     if( validVoluntaryFieldsIfNecessary() )
       isValid = false;
     if( validWantToBeAttendedFieldsIfNecessary() )
+      isValid = false;
+    if( validDonationsFieldsIfNecessary() )
       isValid = false;
 
     return isValid;
@@ -158,6 +172,18 @@ export const Contact = () => {
     return isValid;
   }
 
+  function validDonationsFieldsIfNecessary(){
+    let isValid = true;
+    if (formValues.subject === donations) {
+      if( validate( formValues.donationType, regexNotEmptyString,"donationType",donationTypeFailMessage))
+        isValid = false;
+      
+      if( validate( formValues.quantityDonation,regexNotEmptyString,"quantityDonation",quantityDonationFailMessage))
+        isValid = false;
+    }
+    return isValid;
+  }
+
   function checkRegex(fieldValue: string, regex: string) {
     let regexObject = new RegExp(regex);
     return regexObject.test(fieldValue);
@@ -188,6 +214,8 @@ export const Contact = () => {
       howYouWantToContribute: errorsMessages.howYouWantToContribute,
       daysAndTimesAvailable: errorsMessages.daysAndTimesAvailable,
       serviceType: errorsMessages.serviceType,
+      donationType: errorsMessages.donationType,
+      quantityDonation: errorsMessages.quantityDonation
     });
   }
 
@@ -293,12 +321,22 @@ export const Contact = () => {
       </>
     );
   }
+
+  function getDonationsFields(){
+    return <>
+      <HorizontalBox>
+        <VerticalBox>{getFieldCheck(donationTypeTitle,"donationType",optionsDonations)}</VerticalBox>
+        <VerticalBox>{getField(quantityDonationTitle,"quantityDonation")}</VerticalBox>
+      </HorizontalBox>
+    </>
+
+  }
   function getOptionalFields() {
     return (
       <>
         {(formValues.subject === voluntary && getVoluntaryFields()) ||
-          (formValues.subject === wantToBeAttended &&
-            getMedicalAppointmentFields())}
+          (formValues.subject === wantToBeAttended && getMedicalAppointmentFields()) ||
+          (formValues.subject === donations && getDonationsFields())}
       </>
     );
   }
