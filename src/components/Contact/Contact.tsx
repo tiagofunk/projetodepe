@@ -118,31 +118,29 @@ export const Contact = () => {
 
   function validateValues() {
     let isValid = true;
-
-    if( validFields() )
+    if( !validFields() )
       isValid = false
-    if( validVoluntaryFieldsIfNecessary() )
+    if( !validVoluntaryFieldsIfNecessary() )
       isValid = false;
-    if( validWantToBeAttendedFieldsIfNecessary() )
+    if( !validWantToBeAttendedFieldsIfNecessary() )
       isValid = false;
-    if( validDonationsFieldsIfNecessary() )
+    if( !validDonationsFieldsIfNecessary() )
       isValid = false;
-
     return isValid;
   }
 
   function validFields(){
     let isValid = true;
 
-    if (validate(formValues.name, regexName, "name", nameFailMessage))
+    if (!validate(formValues.name, regexName, "name", nameFailMessage))
       isValid = false;
-    if (validate(formValues.email, regexEmail, "email", emailFailMessage))
+    if (!validate(formValues.email, regexEmail, "email", emailFailMessage))
       isValid = false;
-    if (validate( formValues.subject, regexNotEmptyString,"subject",subjectFailMessage))
+    if (!validate( formValues.subject, regexNotEmptyString,"subject",subjectFailMessage))
       isValid = false;
-    if( validate(formValues.phone, regexPhone, "phone", phoneFailMessage) )
+    if( !validate(formValues.phone, regexPhone, "phone", phoneFailMessage) )
       isValid = false;
-    if( validate(formValues.message,regexNotEmptyString,"message",messageFailMessage) )
+    if( !validate(formValues.message,regexNotEmptyString,"message",messageFailMessage) )
       isValid = false;
     
     return isValid;
@@ -151,11 +149,11 @@ export const Contact = () => {
   function validVoluntaryFieldsIfNecessary() {
     let isValid = true;
     if (formValues.subject === voluntary) {
-      if( validate(formValues.occupationArea,regexNotEmptyString,"occupationArea",occupationAreaFailMessage) )
+      if( !validate(formValues.occupationArea,regexNotEmptyString,"occupationArea",occupationAreaFailMessage) )
         isValid = false;
-      if( validate(formValues.howYouWantToContribute,regexNotEmptyString,"howYouWantToContribute",howYouWantToContributeFailMessage))
+      if( !validate(formValues.howYouWantToContribute,regexNotEmptyString,"howYouWantToContribute",howYouWantToContributeFailMessage))
         isValid = false;
-      if( validate( formValues.daysAndTimesAvailable,regexNotEmptyString,"daysAndTimesAvailable",daysAndTimesAvailableFailMessage)) 
+      if( !validate( formValues.daysAndTimesAvailable,regexNotEmptyString,"daysAndTimesAvailable",daysAndTimesAvailableFailMessage)) 
         isValid = false;
     }
     return isValid;
@@ -164,9 +162,9 @@ export const Contact = () => {
   function validWantToBeAttendedFieldsIfNecessary() {
     let isValid = true;
     if (formValues.subject === wantToBeAttended) {
-      if( validate( formValues.daysAndTimesAvailable, regexNotEmptyString,"daysAndTimesAvailable",daysAndTimesAvailableFailMessage))
+      if( !validate( formValues.daysAndTimesAvailable, regexNotEmptyString,"daysAndTimesAvailable",daysAndTimesAvailableFailMessage))
         isValid = false;
-      if( validate( formValues.serviceType,regexNotEmptyString,"serviceType",serviceTypeFailMessage))
+      if( !validate( formValues.serviceType,regexNotEmptyString,"serviceType",serviceTypeFailMessage))
           isValid = false;
     }
     return isValid;
@@ -175,10 +173,10 @@ export const Contact = () => {
   function validDonationsFieldsIfNecessary(){
     let isValid = true;
     if (formValues.subject === donations) {
-      if( validate( formValues.donationType, regexNotEmptyString,"donationType",donationTypeFailMessage))
+      if( !validate( formValues.donationType, regexNotEmptyString,"donationType",donationTypeFailMessage))
         isValid = false;
       
-      if( validate( formValues.quantityDonation,regexNotEmptyString,"quantityDonation",quantityDonationFailMessage))
+      if( !validate( formValues.quantityDonation,regexNotEmptyString,"quantityDonation",quantityDonationFailMessage))
         isValid = false;
     }
     return isValid;
