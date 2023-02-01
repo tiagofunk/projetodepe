@@ -4,5 +4,6 @@
     "black": "#000000",
     "terciary": "#15BBE5",
     "terciary2": "#296B7D",
-    "white":  "#FFFFFF"
+    "white":  "#FFFFFF",
+    "buttonColor": "#F6C957"
 }
