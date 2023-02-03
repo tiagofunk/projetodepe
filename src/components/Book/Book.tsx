@@ -29,8 +29,8 @@ export const Book = () => {
     <Container>
       <Title>{title}</Title>
       <AllTexts>
-        {text1.map((t) => (
-          <Text>{t}</Text>
+        {text1.map((t, index) => (
+          <Text key={index}>{t}</Text>
         ))}
       </AllTexts>
       <AllImages>
@@ -38,8 +38,8 @@ export const Book = () => {
         <ImagePerson src={fotoLuana} />
       </AllImages>
       <AllTexts>
-        {text2.map((t) => (
-          <Text>{t}</Text>
+        {text2.map((t, index) => (
+          <Text key={index}>{t}</Text>
         ))}
       </AllTexts>
     </Container>

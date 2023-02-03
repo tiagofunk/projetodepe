@@ -26,7 +26,7 @@ export const Professionals = () => {
       <Title>Profissionais</Title>
       <BoxArea>
         {professionalsList.map((person, index) => (
-          <Box isEven={index % 2 === 0}>
+          <Box isEven={index % 2 === 0} key={index}>
             <BoxImage src={person.photo} alt={""} />
             <BoxTitle>{person.name}</BoxTitle>
             <BoxText>{person.expertisse}</BoxText>

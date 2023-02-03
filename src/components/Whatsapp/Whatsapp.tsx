@@ -5,7 +5,7 @@ export interface WhatsappProps {
 }
 
 export const Whatsapp = ({ variant }: WhatsappProps) => {
-  const phoneNumber = "022980153377";
+  const phoneNumber = "02196800215";
   return (
     <Container
       href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${phoneNumber}`}

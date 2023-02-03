@@ -4,65 +4,37 @@ import {
   Text,
   Image,
   ConjuntoTextoComImagem,
-  MVV,
-  BoxPrimary,
-  BoxSecondary,
-  BoxTitle,
-  BoxText,
+  StyledCollapse,
 } from "./About.style";
 import foto_luana from "assets/img/about/foto_luana.jpeg";
+import { Collapse } from "antd";
+import { Timeline } from "components/Timeline/Timeline";
+const { Panel } = Collapse;
 
 export const About = () => {
-  const TITLE = "O que é o projeto de pé?";
+  const TITLE = "O que é o instituto De Pé?";
   const TEXT = [
-    "O De pé é sobretudo um projeto de desenvolvimento humano!",
-    "Observando a ausência de medidas, projetos e informações biopsicossociais por parte do governo e o impacto que isto gera desaguando diretamente na marginalização e a exclusão de possiblidades de qualidade de vida no indivíduo e na comunidade.",
-    "A princípio era um projeto de atendimento psicológico individual gratuito nas comunidades. A experiência prática demonstrou a necessidade de outros profissionais e atividades.",
-    "Baseado na vivência em comunidades e no estágio no Criaad percebi que somente acompanhamento terapêutico não dá conta das demandas vividas por essa população.",
+    "O De Pé é sobretudo um projeto de desenvolvimento humano que visa prover saúde mental aos moradores da Cidade de Deus!",
+    "A princípio era um projeto de atendimento psicológico individual gratuito nas comunidades, mas a experiência prática demonstrou que apenas acompanhamento terapêutico não é o suficiente para atender as demandas vividas por essa população",
+    "Observando a ausência de medidas, projetos e informações por parte do governo na Cidade de Deus, atualmente o projeto busca tratar, educar e profissionalizar o maior número de pessoas possíveis, assim como atrair voluntários com vontade de ajudar a comunidade.",
   ];
-  const TEXT_ALONE =
-    "Visto que muitos entraves se devem a questões básicas de alimentação, transporte, atendimento básico de saúde e documentação por exemplo. Promovendo de saúde mental e desenvolvimento da população. Detectando e potencializando as características do indivíduo e da comunidade,agregaremos valor a sua existência.";
-
-  const MISSION = "Missão";
-  const MISSION_TEXT = "Gerar saúde mental na favela.";
-
-  const VISION = "Visão";
-  const VISION_TEXT =
-    "Ser uma instituição de excelência em tratar, informar e formar a favela.";
-
-  const VALUES = "Valores";
-  const VALUES_TEXT =
-    "Determinação, empatia, parcerias, esperança e principalmente Fé no outro.";
 
   const IMAGE_CAPTION = "Braços de uma mulher com tatuagens";
 
   return (
     <Container>
-      <Title>{TITLE}</Title>
       <ConjuntoTextoComImagem>
-        <div>
-          {TEXT.map((text, index) => (
-            <Text key={index}>{text}</Text>
-          ))}
-        </div>
         <Image src={foto_luana} alt={IMAGE_CAPTION} />
+        <Title>{TITLE}</Title>
+        {TEXT.map((text, index) => (
+          <Text key={index}>{text}</Text>
+        ))}
       </ConjuntoTextoComImagem>
-      <Text>{TEXT_ALONE}</Text>
-
-      <MVV>
-        <BoxPrimary>
-          <BoxTitle>{MISSION}</BoxTitle>
-          <BoxText>{MISSION_TEXT}</BoxText>
-        </BoxPrimary>
-        <BoxSecondary>
-          <BoxTitle>{VISION}</BoxTitle>
-          <BoxText>{VISION_TEXT}</BoxText>
-        </BoxSecondary>
-        <BoxPrimary>
-          <BoxTitle>{VALUES}</BoxTitle>
-          <BoxText>{VALUES_TEXT}</BoxText>
-        </BoxPrimary>
-      </MVV>
+      <StyledCollapse ghost >
+        <Panel header="Linha do tempo" key="1">
+          <Timeline />
+        </Panel>
+      </StyledCollapse>
     </Container>
   );
 };

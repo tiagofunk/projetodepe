@@ -1,13 +1,22 @@
 import { Header } from "components/Header/Header";
-import React from "react";
+import { Whatsapp } from "components/Whatsapp/Whatsapp";
+import { RoutePaths } from "enums/RoutePaths";
+import { Donation } from "pages/Donation/Donation";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import { Main } from "./pages/Main/Main";
 
 function App(): JSX.Element {
   return (
     <div className="App">
-      <Header />
-      <Main />
+      <BrowserRouter>
+        <Header />
+        <Whatsapp variant={"icon"} />
+        <Routes>
+          <Route path={RoutePaths.HOME} element={<Main />} />
+          <Route path={RoutePaths.DONATIONS} element={<Donation />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

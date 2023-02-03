@@ -27,6 +27,7 @@ export const Title = styled.span`
   font-size: 3rem;
   font-weight: ${fonts.weight.medium};
   font-family: "Stick No Bills", sans-serif;
+  cursor: pointer;
 `;
 
 export const StyledButton = styled(Button)`

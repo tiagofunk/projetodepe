@@ -12,9 +12,9 @@ export const Timeline = () => {
     ["09/08/2021", 'Manuscrito do  que na época nasceu "voando alto"'],
     [
       "16/08/2021",
-      "Visita a casa do artista,na esperança de mostrar o projeto, consegui ser recebida pelo empresário,mas sem maiores desdobramentos.",
+      "Visita a casa do artista,na esperança de mostrar o projeto, consegui ser recebida pelo empresário, mas sem maiores desdobramentos.",
     ],
-    ["01/09/2021", "Primeira reunião,convite a Camila Pires"],
+    ["01/09/2021", "Primeira reunião, convite a Camila Pires"],
     ["24/09/2021", "Clarice pires entra no projeto"],
     ["14/10/2021", "Naná entra no projeto. ( Ana Carolina Viola, advogada)"],
     [
@@ -38,10 +38,9 @@ export const Timeline = () => {
 
   return (
     <Container>
-      <Title>Linha do Tempo</Title>
       <ScrollableContainer>
         <Background>
-          <TimelineAnt mode="alternate">
+          <TimelineAnt mode="alternate" style={{ padding: 0 }}>
             {TIMELINE_TEXT.map((text, index) => (
               <TimelineAnt.Item color="black" key={index}>
                 <Text>
