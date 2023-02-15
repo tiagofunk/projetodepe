@@ -1,7 +1,8 @@
-import { Button } from "antd";
-import { HeartFilled } from "@ant-design/icons/lib/icons";
+import { Button, Menu } from "antd";
+import { HeartFilled, DownloadOutlined } from "@ant-design/icons/lib/icons";
 import styled from "styled-components";
 import Theme from "theme/Theme";
+import { Link } from "react-router-dom";
 
 const { colors, fonts, spaces } = Theme;
 
@@ -17,16 +18,62 @@ export const HeaderContainer = styled.div`
   z-index: 1001;
 `;
 
-export const Container = styled.div`
-  display: flex;
-  align-items: center;
+export const Navigation = styled(Menu)`
+  &&& {
+    height: 100%;
+    background-color: ${colors.primary};
+    display: flex;
+    flex-direction: row;
+    margin-right: ${spaces.sp};
+
+    .ant-menu-item-group {
+      background-color: red !important;
+    }
+
+    .ant-menu-item-selected::after {
+      border-bottom: 0.3rem solid ${colors.secondary};
+    }
+
+    .ant-menu-item-only-child:hover::after {
+      border-bottom: 0.3rem solid ${colors.secondary};
+    }
+
+    .ant-menu-submenu-active::after {
+      border-bottom: 0.3rem solid ${colors.secondary};
+    }
+
+    .ant-menu-submenu-title {
+      display: flex;
+    }
+
+    li {
+      height: 100%;
+      display: flex;
+      flex-direction: row;
+      justify-content: center;
+      padding: ${spaces.none};
+    }
+
+    span {
+      font-size: 1.8rem;
+      font-weight: bold;
+      color: ${colors.white};
+      padding: ${spaces.s} 2rem ${spaces.none} 2rem;
+    }
+  }
 `;
 
-export const Title = styled.span`
+export const Tab = styled.div`
+  height: 100%;
+`;
+
+export const Title = styled(Link)`
   color: ${colors.white};
+  margin-left: ${spaces.m};
   font-size: 3rem;
   font-weight: ${fonts.weight.medium};
   font-family: "Stick No Bills", sans-serif;
+  text-decoration: none;
   cursor: pointer;
 `;
 
@@ -43,6 +90,15 @@ export const HeartIcon = styled(HeartFilled)`
   fill: ${colors.primary};
 `;
 
+export const DownloadIcon = styled(DownloadOutlined)`
+  fill: black;
+`;
+
+export const StyledLink = styled.a`
+  margin-left: ${spaces.sp};
+  color: black;
+`;
+
 export const ButtonsContainer = styled.div`
   display: flex;
-`; 
+`;

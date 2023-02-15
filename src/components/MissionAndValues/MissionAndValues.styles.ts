@@ -9,7 +9,7 @@ export const MVV = styled.div`
   align-items: flex-start;
   font-family: "Stick No Bills", sans-serif;
   width: 100%;
-  margin-top: ${spaces.xl};
+  margin-top: ${spaces.m};
 `;
 
 export const BoxPrimary = styled.div<{ isOdd: boolean }>`
@@ -27,4 +27,15 @@ export const BoxTitle = styled.div`
 
 export const BoxText = styled.div`
   font-size: ${fonts.size.large};
+`;
+
+export const Title = styled.span`
+  color: ${colors.black};
+  font-size: ${fonts.size.large};
+  font-weight: ${fonts.weight.bold};
+  font-family: "Stick No Bills", sans-serif;
+`;
+
+export const Container = styled.div`
+  margin-top: 8rem;
 `;

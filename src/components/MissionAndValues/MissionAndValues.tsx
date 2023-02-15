@@ -1,9 +1,4 @@
-import {
-  BoxPrimary,
-  BoxText,
-  BoxTitle,
-  MVV,
-} from "./MissionAndValues.styles";
+import { BoxPrimary, BoxText, BoxTitle, Container, MVV, Title } from "./MissionAndValues.styles";
 
 const MissionAndValues = () => {
   const content = [
@@ -19,6 +14,8 @@ const MissionAndValues = () => {
   ];
 
   return (
+    <Container>
+      <Title>Missão, visao e valores</Title>
       <MVV>
         {content.map((item, index) => (
           <BoxPrimary isOdd={index % 2 !== 0} key={index}>
@@ -27,6 +24,7 @@ const MissionAndValues = () => {
           </BoxPrimary>
         ))}
       </MVV>
+    </Container>
   );
 };
 

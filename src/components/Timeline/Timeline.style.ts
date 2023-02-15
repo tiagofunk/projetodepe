@@ -8,6 +8,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
+  flex-grow: 1;
 `;
 
 export const Title = styled.div`
@@ -32,12 +33,16 @@ export const ScrollableContainer = styled.div`
   height: 25rem;
   overflow-y: scroll;
   overflow-x: hidden;
+  flex-grow: 1;
+  margin-bottom: 8rem;
 `;
 
 export const Background = styled.div``;
 
 export const StyledTimelineAnt = styled(Timeline)`
-  .ant-collapse-content-box {
-    padding: ${spaces.none};
+  &&& {
+    .ant-timeline-item-content {
+      width: calc(50% - ${spaces.l});
+    }
   }
 `;

@@ -1,4 +1,3 @@
-import { Whatsapp } from "components/Whatsapp/Whatsapp";
 import Footer from "components/Footer/Footer";
 import { About } from "../../components/About/About";
 import {
@@ -9,13 +8,9 @@ import {
 } from "./Main.style";
 import { VideoArea } from "../../components/VideoArea/VideoArea";
 import { Activities } from "components/Activities/Activities";
-import { Timeline } from "../../components/Timeline/Timeline";
-import { QRCodeArea } from "components/QRCodeArea/QRCodeArea";
-import { Professionals } from "components/Professionals/Professionals";
-import { Book } from "components/Book/Book";
 import { BackToTheTopButton } from "components/BackToTheToplButton/BackToTheTopButton";
 import { useRef } from "react";
-import MissionAndValues from "components/MissionAndValues/MissionAndValues";
+import { Contact } from "components/Contact/Contact";
 
 export const Main = () => {
   const mainRef = useRef<HTMLDivElement | null>(null);
@@ -28,15 +23,12 @@ export const Main = () => {
       </MainSection>
       <MainArea>
        <BackToTheTopButton mainContainerRef={mainRef} />
-        <MissionAndValues />
+         <Activities />
+         <Contact />
         <VideoArea />
-        {/* <Activities />
-        <Timeline />
-        <QRCodeArea />
-        <Professionals />
-        <Book /> */}
       </MainArea>
       <Footer />
     </Container>
   );
 };
+

@@ -7,7 +7,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15rem;
+  width: 100%;
 `;
 
 export const Title = styled.span`
@@ -15,13 +15,12 @@ export const Title = styled.span`
   font-size: ${fonts.size.large};
   font-weight: ${fonts.weight.bold};
   font-family: "Stick No Bills", sans-serif;
-  margin-bottom: ${spaces.s};
 `;
 
 const StyleLine = css`
     display: flex;
     flex-direction: row;
-    width: 100%;
+    width: calc(100% - ${spaces.m}*2);
     padding: ${spaces.m};
     font-size: ${fonts.size.large};
     font-family: "Stick No Bills", sans-serif;

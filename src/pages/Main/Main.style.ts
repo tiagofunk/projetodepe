@@ -6,13 +6,13 @@ export const MainArea = styled.div`
   margin-left: auto;
   margin-right: auto;
   width: 90rem;
+  display: flex;
+  flex-direction: column;
+  margin-top: 8rem;
+  gap: 8rem;
 `;
 
-export const Container = styled.div`
-  margin-top: 7rem;
-  height: calc(100vh - 7rem);
-  overflow-y: scroll;
-`;
+export const Container = styled.div``;
 
 export const MainSection = styled.div`
   height: calc(100vh - 7rem);

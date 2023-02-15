@@ -7,7 +7,10 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: ${spaces.xl};
+  margin-top: 8rem;
+  width: 90rem;
+  margin-right: auto;
+  margin-left: auto;
 `;
 
 export const Title = styled.span`

@@ -4,6 +4,7 @@ import {
   Title,
   ScrollableContainer,
   Background,
+  StyledTimelineAnt,
 } from "./Timeline.style";
 import { Timeline as TimelineAnt } from "antd";
 
@@ -38,9 +39,10 @@ export const Timeline = () => {
 
   return (
     <Container>
+      <Title>Linha do tempo</Title>
       <ScrollableContainer>
         <Background>
-          <TimelineAnt mode="alternate" style={{ padding: 0 }}>
+          <StyledTimelineAnt mode="alternate" style={{ padding: 0 }}>
             {TIMELINE_TEXT.map((text, index) => (
               <TimelineAnt.Item color="black" key={index}>
                 <Text>
@@ -50,7 +52,7 @@ export const Timeline = () => {
                 </Text>
               </TimelineAnt.Item>
             ))}
-          </TimelineAnt>
+          </StyledTimelineAnt>
         </Background>
       </ScrollableContainer>
     </Container>

@@ -23,7 +23,7 @@ export const Professionals = () => {
 
   return (
     <Container>
-      <Title>Profissionais</Title>
+      <Title>Profissionais cadastrados</Title>
       <BoxArea>
         {professionalsList.map((person, index) => (
           <Box isEven={index % 2 === 0} key={index}>

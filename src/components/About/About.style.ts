@@ -45,7 +45,6 @@ export const Image = styled.img`
   width: 32rem;
   height: 25rem;
   margin-left: ${spaces.sp};
-  margin-bottom: ${spaces.s};
   float: right;
 `;
 
