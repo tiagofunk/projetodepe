@@ -4,7 +4,7 @@ import styled from "styled-components";
 import Theme from "theme/Theme";
 import { Link } from "react-router-dom";
 
-const { colors, fonts, spaces } = Theme;
+const { colors, fonts, spaces, breakPoints } = Theme;
 
 export const HeaderContainer = styled.div`
   align-items: center;
@@ -16,6 +16,26 @@ export const HeaderContainer = styled.div`
   top: 0;
   width: 100%;
   z-index: 1001;
+
+  @media (max-width: ${breakPoints.tablet}) {
+    justify-content: flex-start;
+  }
+`;
+
+export const StyledLabel = styled.span`
+  @media (max-width: ${breakPoints.tablet}) {
+    display: block;
+    color: ${colors.black};
+    margin-top: ${spaces.mp};
+  }
+`;
+
+export const StyledOption = styled(Link)`
+  @media (max-width: ${breakPoints.tablet}) {
+    display: block;
+    color: ${colors.black};
+    margin-top: ${spaces.mp};
+  }
 `;
 
 export const Navigation = styled(Menu)`
@@ -60,6 +80,10 @@ export const Navigation = styled(Menu)`
       color: ${colors.white};
       padding: ${spaces.s} 2rem ${spaces.none} 2rem;
     }
+
+    @media (max-width: ${breakPoints.tablet}) {
+      display: none;
+    }
   }
 `;
 
@@ -97,6 +121,7 @@ export const DownloadIcon = styled(DownloadOutlined)`
 export const StyledLink = styled.a`
   margin-left: ${spaces.sp};
   color: black;
+  margin-top: ${spaces.mp};
 `;
 
 export const ButtonsContainer = styled.div`

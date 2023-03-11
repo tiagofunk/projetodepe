@@ -5,6 +5,7 @@ export const Container = styled.div`
   margin-right: auto;
   margin-top: 7rem;
   width: 90rem;
+  height: calc(100vh - 20rem);
   display: flex;
   gap: 7rem;
 `;

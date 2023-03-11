@@ -1,5 +1,5 @@
 import { MenuProps } from "antd";
-import { Link, useLocation } from "react-router-dom";
+import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 import { RoutePaths } from "enums/RoutePaths";
@@ -7,12 +7,16 @@ import {
   DownloadIcon,
   HeaderContainer,
   Navigation,
+  StyledLabel,
   StyledLink,
+  StyledOption,
   Title,
 } from "./Header.style";
+import { Menu } from "./Menu/Menu";
 
 export const Header = () => {
   const [currentTab, setCurrentTab] = useState("home");
+  const [open, setOpen] = useState(false);
   const location = useLocation();
 
   useEffect(() => {
@@ -36,19 +40,38 @@ export const Header = () => {
 
   const items = [
     {
-      label: <Link to={RoutePaths.ABOUT}>Sobre</Link>,
+      label: (
+        <StyledOption to={RoutePaths.ABOUT} onClick={() => setOpen(false)}>
+          Sobre
+        </StyledOption>
+      ),
       key: "about",
     },
     {
-      label: <Link to={RoutePaths.PROFESSIONALS}>Profissionais</Link>,
+      label: (
+        <StyledOption
+          to={RoutePaths.PROFESSIONALS}
+          onClick={() => setOpen(false)}
+        >
+          Profissionais
+        </StyledOption>
+      ),
       key: "contact",
     },
     {
-      label: <Link to={RoutePaths.DONATIONS}>Doação por Pix</Link>,
+      label: (
+        <StyledOption to={RoutePaths.DONATIONS} onClick={() => setOpen(false)}>
+          Doação por Pix
+        </StyledOption>
+      ),
       key: "donation",
     },
     {
-      label: "Prestação de contas",
+      label: (
+        <StyledLabel onClick={() => setOpen(false)}>
+          Prestação de contas
+        </StyledLabel>
+      ),
       key: "transparency",
       children: [
         {
@@ -69,9 +92,30 @@ export const Header = () => {
     },
   ];
 
+  const handleTitleClick = () => {
+    setCurrentTab("home");
+    setOpen(false);
+  };
+
   return (
     <HeaderContainer>
-      <Title to={RoutePaths.HOME} onClick={() => setCurrentTab("home")}>
+      <Menu open={open} setOpen={setOpen}>
+        <>
+          {
+            <StyledOption to={RoutePaths.HOME} onClick={() => setOpen(false)}>
+              Pagina inicial
+            </StyledOption>
+          }
+          {items.map((item, index) =>
+            index + 1 !== items.length ? (
+              <div key={item.key}>{item.label}</div>
+            ) : (
+              <div key={item.key}></div>
+            )
+          )}
+        </>
+      </Menu>
+      <Title to={RoutePaths.HOME} onClick={handleTitleClick}>
         Instituto De Pé
       </Title>
 

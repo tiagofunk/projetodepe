@@ -3,7 +3,7 @@ import Theme from "theme/Theme";
 import { Input, Button, Select } from "antd";
 import TextArea from "antd/es/input/TextArea";
 
-const { colors, fonts, spaces } = Theme;
+const { colors, fonts, spaces, breakPoints } = Theme;
 
 export const Container = styled.div`
   &&& {
@@ -31,6 +31,10 @@ export const HorizontalBox = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    flex-direction: column;
+  }
 `;
 
 export const Text = styled.div`

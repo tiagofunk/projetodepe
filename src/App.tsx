@@ -1,3 +1,4 @@
+import Footer from "components/Footer/Footer";
 import { Header } from "components/Header/Header";
 import { Professionals } from "components/Professionals/Professionals";
 import { Whatsapp } from "components/Whatsapp/Whatsapp";
@@ -24,6 +25,7 @@ function App(): JSX.Element {
             />
             <Route path={RoutePaths.DONATIONS} element={<Donation />} />
           </Routes>
+          <Footer />
         </div>
       </BrowserRouter>
     </div>

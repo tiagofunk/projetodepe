@@ -4,7 +4,7 @@ export const VideoArea = () => {
   return (
     <Container>
       <iframe
-        width="100%"
+        width="96%"
         height="566rem"
         src="https://www.youtube-nocookie.com/embed/2grAUNpnG8I"
         title="YouTube video player"

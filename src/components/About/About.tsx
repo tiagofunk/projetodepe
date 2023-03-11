@@ -4,6 +4,7 @@ import {
   Text,
   Image,
   ConjuntoTextoComImagem,
+  ContentArea,
 } from "./About.style";
 import foto_luana from "assets/img/about/foto_luana.jpeg";
 
@@ -21,10 +22,14 @@ export const About = () => {
     <Container>
       <ConjuntoTextoComImagem>
         <Title>{TITLE}</Title>
-        <Image src={foto_luana} alt={IMAGE_CAPTION} />
-        {TEXT.map((text, index) => (
-          <Text key={index}>{text}</Text>
-        ))}
+        <ContentArea>
+          <Image src={foto_luana} alt={IMAGE_CAPTION} />
+          <div>
+            {TEXT.map((text, index) => (
+              <Text key={index}>{text}</Text>
+            ))}
+          </div>
+        </ContentArea>
       </ConjuntoTextoComImagem>
     </Container>
   );

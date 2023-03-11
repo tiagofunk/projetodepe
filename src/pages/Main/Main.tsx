@@ -1,4 +1,3 @@
-import Footer from "components/Footer/Footer";
 import { About } from "../../components/About/About";
 import {
   BackgroundImage,
@@ -6,7 +5,6 @@ import {
   MainArea,
   MainSection,
 } from "./Main.style";
-import { VideoArea } from "../../components/VideoArea/VideoArea";
 import { Activities } from "components/Activities/Activities";
 import { BackToTheTopButton } from "components/BackToTheToplButton/BackToTheTopButton";
 import { useRef } from "react";
@@ -22,13 +20,10 @@ export const Main = () => {
         <About />
       </MainSection>
       <MainArea>
-       <BackToTheTopButton mainContainerRef={mainRef} />
-         <Activities />
-         <Contact />
-        <VideoArea />
+        <BackToTheTopButton mainContainerRef={mainRef} />
+        <Activities />
+        <Contact />
       </MainArea>
-      <Footer />
     </Container>
   );
 };
-

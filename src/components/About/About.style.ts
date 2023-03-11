@@ -1,8 +1,8 @@
 import { Collapse } from "antd";
-import styled, { css } from "styled-components";
+import styled from "styled-components";
 import Theme from "theme/Theme";
 
-const { colors, fonts, spaces } = Theme;
+const { colors, fonts, spaces, breakPoints } = Theme;
 
 export const Container = styled.div`
   display: flex;
@@ -30,6 +30,14 @@ export const Title = styled.span`
   display: block;
 `;
 
+export const ContentArea = styled.div`
+  @media (max-width: ${breakPoints.mobile}) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+`;
+
 export const Text = styled.p`
   display: block;
   color: ${colors.black};
@@ -46,6 +54,13 @@ export const Image = styled.img`
   height: 25rem;
   margin-left: ${spaces.sp};
   float: right;
+
+  @media (max-width: ${breakPoints.mobile}) {
+    width: 100%;
+    margin-left: ${spaces.none};
+    margin-bottom: ${spaces.sp};
+    object-fit: cover
+  }
 `;
 
 export const StyledCollapse = styled(Collapse)`

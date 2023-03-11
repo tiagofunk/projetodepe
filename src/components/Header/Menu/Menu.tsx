@@ -1,14 +1,20 @@
 import { Drawer } from "antd";
-import { useState } from "react";
+import { ReactElement } from "react";
 
 import { CloseMenuIcon, MenuContainer, MenuIcon } from "./Menu.styles";
 import Theme from "theme/Theme";
 
 const { colors } = Theme;
 
-export const Menu = () => {
-  const [open, setOpen] = useState(false);
-
+export const Menu = ({
+  children,
+  open,
+  setOpen,
+}: {
+  children: ReactElement;
+  open: boolean;
+  setOpen: (open: boolean) => void;
+}) => {
   return (
     <MenuContainer>
       {open ? (
@@ -19,11 +25,12 @@ export const Menu = () => {
       <Drawer
         style={{ backgroundColor: colors.secondary, paddingTop: "5rem" }}
         closable={false}
+        width={"35rem"}
         placement="left"
         onClose={() => setOpen(false)}
         open={open}
       >
-        <h2>Texto exemplo</h2>
+        {children}
       </Drawer>
     </MenuContainer>
   );

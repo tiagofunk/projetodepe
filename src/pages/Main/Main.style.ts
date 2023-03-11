@@ -1,6 +1,9 @@
 import styled from "styled-components";
+import Theme from "theme/Theme";
 
 const image = require("assets/img/mainSection/cidadededeus.jpg");
+
+const { breakPoints, spaces } = Theme;
 
 export const MainArea = styled.div`
   margin-left: auto;
@@ -10,6 +13,11 @@ export const MainArea = styled.div`
   flex-direction: column;
   margin-top: 8rem;
   gap: 8rem;
+
+  @media (max-width: ${breakPoints.tablet}) {
+    width: calc(100% - ${spaces.sp});
+    padding: ${spaces.none} ${spaces.none} ${spaces.none} ${spaces.sp};
+  }
 `;
 
 export const Container = styled.div``;
