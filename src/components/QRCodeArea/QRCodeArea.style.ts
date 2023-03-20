@@ -1,13 +1,20 @@
 import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
 
-const { colors, fonts, spaces } = Theme;
+const { colors, fonts, spaces, breakPoints } = Theme;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   margin-top: ${spaces.xl};
+  @media (max-width: ${breakPoints.mobile}) {
+    margin-top: ${spaces.none};
+    flex-direction: column;
+    padding: 1rem;
+    width: 30rem;
+    align-items: center;
+  }
 `;
 
 export const Area = styled.span``;
@@ -54,6 +61,9 @@ export const Image = styled.img`
   margin-bottom: ${spaces.xs};
   padding: ${spaces.sp};
   background-color: ${colors.secondary};
+  @media (max-width: ${breakPoints.mobile}) {
+    margin-top: ${spaces.s};
+  }
 `;
 
 export const StyledLink = styled.a`
