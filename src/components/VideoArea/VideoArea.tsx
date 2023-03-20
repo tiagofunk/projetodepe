@@ -6,7 +6,7 @@ export const VideoArea = () => {
       <iframe
         width="96%"
         height="566rem"
-        src="https://www.youtube-nocookie.com/embed/2grAUNpnG8I"
+        src="https://www.youtube-nocookie.com/embed/u0qTa2qvzaM "
         title="YouTube video player"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
