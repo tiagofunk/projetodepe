@@ -48,7 +48,7 @@ export const Contact = () => {
 
   const formId = "contact-form";
   const formSubmitLink = "https://formsubmit.co/";
-  const formSubmitHash = info.emailHash; //localhost:3000
+  const formSubmitHash = info.emailHash;
 
   const regexName = "^[0-9a-zA-Z ]+$";
   const regexEmail = "^[0-9a-zA-Z._]+@[0-9a-zA-Z]+\\.[a-zA-Z]{1,3}$";

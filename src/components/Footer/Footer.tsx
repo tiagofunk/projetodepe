@@ -32,7 +32,7 @@ export const Footer = () => {
       content: [
         {
           image: <PhoneImage />,
-          text: "(21) 99680-0215",
+          text: info.phone,
         },
         {
           image: <EmailImage />,

@@ -3,15 +3,19 @@ import { Container, WhatsAppIcon, WhatsAppSmallIcon } from "./Whatsapp.styles";
 
 const {info} = ProjetcOwner;
 
-export interface WhatsappProps {
+interface WhatsappProps {
   variant: "icon" | "button";
 }
 
+const phoneHelper = (phone:String)=>{
+  const regex = new RegExp(/[\\(\\) -]/g)
+  return phone.replace(regex,"")
+}
+
 export const Whatsapp = ({ variant }: WhatsappProps) => {
-  const phoneNumber = "021996800215";
   return (
     <Container
-      href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${info.phone}`}
+      href={`http://api.whatsapp.com/send?1=pt_BR&phone=55${phoneHelper(info.phone)}`}
       target="_blank"
       variant={variant}
     >
