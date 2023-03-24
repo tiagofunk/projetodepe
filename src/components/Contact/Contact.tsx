@@ -1,3 +1,4 @@
+import ProjetcOwner from "projectOwner/ProjectOwner";
 import { useState } from "react";
 import {
   Container,
@@ -12,6 +13,7 @@ import {
   ErrorText,
   Form,
 } from "./Contact.style";
+const {info} = ProjetcOwner;
 
 const { Option } = MySelect;
 
@@ -46,7 +48,7 @@ export const Contact = () => {
 
   const formId = "contact-form";
   const formSubmitLink = "https://formsubmit.co/";
-  const formSubmitHash = "4bf6dc77a30a97a4dcd258f7001abdbc"; //localhost:3000
+  const formSubmitHash = info.emailHash; //localhost:3000
 
   const regexName = "^[0-9a-zA-Z ]+$";
   const regexEmail = "^[0-9a-zA-Z._]+@[0-9a-zA-Z]+\\.[a-zA-Z]{1,3}$";
