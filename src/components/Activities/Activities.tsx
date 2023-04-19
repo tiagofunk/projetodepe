@@ -13,7 +13,7 @@ export const Activities = () => {
     ["D'Votar", "Política para leigos em parceria com o IPAD."],
     [
       "D'Reciclar",
-      "Coleta e oficina de material reutilizável (Vidro, plástico, mandeira,etc).",
+      "Coleta e oficina de material reutilizável (Vidro, plástico, madeira, etc).",
     ],
     ["D'Eternizar", "Oficina de tatuagem, quadro e fotografia."],
     ["D'Raiz", "Oficina de trança"],
@@ -35,7 +35,7 @@ export const Activities = () => {
   return (
     <Container>
       <Title>Atividades Prestadas</Title>
-      <p>Atualmente, o instituto de pé conta com uma série de ativides gratuitas disponíveis ao público:</p>
+      <p>Atualmente, o Instituto de Pé conta com uma série de atividades gratuitas disponíveis ao público:</p>
       <Header>
         <FirstColumn>Nome</FirstColumn>
         <SecondColumn>Atividade</SecondColumn>

@@ -19,7 +19,7 @@ const { Option } = MySelect;
 
 export const Contact = () => {
   const title = "Faça seu contato";
-  const subtitle = "Deseja participar de alguma ativide ou contribuir com o projeto? Preencha o formulário abaixo.";
+  const subtitle = "Deseja participar de alguma atividade ou contribuir com o projeto? Preencha o formulário abaixo.";
   const nameTitle = "Nome";
   const nameFailMessage = "Nome não pode ficar vazio";
   const emailTitle = "E-mail";
