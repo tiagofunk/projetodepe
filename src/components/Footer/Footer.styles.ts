@@ -7,9 +7,9 @@ import {
 
 import Theme from "theme/Theme";
 
-const { colors, spaces, fonts } = Theme;
+const { colors, spaces, fonts, breakPoints } = Theme;
 
-const teste = require("assets/img/footer/city.png");
+const image = require("assets/img/footer/city.png");
 
 export const FooterContainer = styled.div`
   background-color: rgba(46, 28, 18, 0.9);
@@ -21,7 +21,7 @@ export const FooterContainer = styled.div`
 `;
 
 export const BackgroundImage = styled.div`
-  background: url(${teste}) no-repeat;
+  background: url(${image}) no-repeat;
   background-size: cover;
   background-position: center;
   position: absolute;
@@ -43,6 +43,10 @@ export const Section = styled.div`
   flex-direction: column;
   align-items: flex-start;
   margin-bottom: ${spaces.m};
+
+  @media (max-width: ${breakPoints.tablet}) {
+    width: 100%;
+  }
 `;
 
 const fontStyle = css`
@@ -92,8 +96,16 @@ export const InnerContainer = styled.div`
   height: 100%;
   display: flex;
   align-items: center;
+
+  @media (max-width: ${breakPoints.tablet}) {
+    justify-content: center;
+  }
 `;
 
 export const StyledIframe = styled.iframe`
   margin-left: ${spaces.l};
+
+  @media (max-width: ${breakPoints.tablet}) {
+    display: none;
+  }
 `;

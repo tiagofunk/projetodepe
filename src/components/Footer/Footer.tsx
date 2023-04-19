@@ -1,4 +1,5 @@
 import Link from "antd/es/typography/Link";
+import ProjetcOwner from "projectOwner/ProjectOwner";
 import {
   BackgroundImage,
   FooterContainer,
@@ -14,6 +15,7 @@ import {
   StyledIframe,
 } from "./Footer.styles";
 import { FooterContent } from "./Footer.types";
+const {info} = ProjetcOwner;
 
 export const Footer = () => {
   const footerContent: FooterContent[] = [
@@ -21,7 +23,7 @@ export const Footer = () => {
       title: "Endereço",
       content: [
         {
-          text: "Rua José de Arimatéia, 80 - Cidade de Deus | Rio de Janeiro",
+          text: info.adress,
         },
       ],
     },
@@ -30,11 +32,11 @@ export const Footer = () => {
       content: [
         {
           image: <PhoneImage />,
-          text: "(21) 99680-0215",
+          text: info.phone,
         },
         {
           image: <EmailImage />,
-          text: "projetodepe@gmail.com",
+          text: info.email,
         },
       ],
     },

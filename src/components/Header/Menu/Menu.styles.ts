@@ -2,11 +2,14 @@ import { MenuOutlined, CloseOutlined } from "@ant-design/icons/lib/icons";
 import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
 
-const { colors, spaces } = Theme;
+const { colors, spaces, breakPoints } = Theme;
 
 export const MenuContainer = styled.div`
   padding: ${spaces.mp};
-  padding-left: ${spaces.l};
+  
+  @media (min-width: ${breakPoints.tablet}) {
+    display: none;
+  }
 `;
 
 const imgStyle = css`

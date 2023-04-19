@@ -6,6 +6,7 @@ import {
   Area,
   Image,
   TextPixKey,
+  StyledLink,
 } from "./QRCodeArea.style";
 import qrcode from "assets/img/QRCodeArea/qrcode.jpeg";
 
@@ -25,13 +26,13 @@ export const QRCodeArea = () => {
     <Container>
       <Area>
         <Title>{TITLE}</Title>
-        {INSTRUCTIONS.map((text) => (
-          <TextRegular>{text}</TextRegular>
+        {INSTRUCTIONS.map((text, index) => (
+          <TextRegular key={index}>{text}</TextRegular>
         ))}
         <TextBold>{TEXT}</TextBold>
         <TextRegular>
           Você também pode clicar{" "}
-          <a href="http://campanhadobem.com/instituto-de-pe-saude-mental-na-favela" target="_blank"  rel="noreferrer">aqui</a> para
+          <StyledLink href="http://campanhadobem.com/instituto-de-pe-saude-mental-na-favela" target="_blank" rel="noreferrer">aqui</StyledLink> para
           acessar a vaquinha virtual do projeto.
         </TextRegular>
       </Area>

@@ -2,7 +2,8 @@
     "lineHeight": "2.4rem",
     "size": {
         "large":"2.4rem",
-        "default": "1.6rem",
+        "subLarge":"2.0rem",
+        "default": "1.8rem",
         "small": "1.2rem"
     },
     "weight": {

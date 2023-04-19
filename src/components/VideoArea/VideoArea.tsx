@@ -4,11 +4,10 @@ export const VideoArea = () => {
   return (
     <Container>
       <iframe
-        width="100%"
+        width="96%"
         height="566rem"
-        src="https://www.youtube-nocookie.com/embed/2grAUNpnG8I"
+        src="https://www.youtube-nocookie.com/embed/u0qTa2qvzaM "
         title="YouTube video player"
-        frameBorder="0"
         allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
         allowFullScreen
       ></iframe>

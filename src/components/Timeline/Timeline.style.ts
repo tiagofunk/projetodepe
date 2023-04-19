@@ -1,3 +1,4 @@
+import { Timeline } from "antd";
 import styled from "styled-components";
 import Theme from "theme/Theme";
 
@@ -7,7 +8,7 @@ export const Container = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: 15rem;
+  flex-grow: 1;
 `;
 
 export const Title = styled.div`
@@ -28,11 +29,20 @@ export const Text = styled.div`
 `;
 
 export const ScrollableContainer = styled.div`
-  height: 50rem;
+  width: 100%;
+  height: 25rem;
   overflow-y: scroll;
   overflow-x: hidden;
+  flex-grow: 1;
+  margin-bottom: 8rem;
 `;
 
-export const Background = styled.div`
-  padding-top: 5rem;
+export const Background = styled.div``;
+
+export const StyledTimelineAnt = styled(Timeline)`
+  &&& {
+    .ant-timeline-item-content {
+      width: calc(50% - ${spaces.l});
+    }
+  }
 `;

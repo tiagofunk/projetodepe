@@ -14,7 +14,7 @@ const iconStyle = css`
   bottom: ${spaces.mp};
   right: ${spaces.lp};
   border-radius: 100%;
-  padding: ${spaces.sp};
+  padding: 1rem;
   background-color: #4dc247;
   height: fit-content;
   z-index: 100;

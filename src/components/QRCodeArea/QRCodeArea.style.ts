@@ -1,13 +1,19 @@
 import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
 
-const { colors, fonts, spaces } = Theme;
+const { colors, fonts, spaces, breakPoints } = Theme;
 
 export const Container = styled.div`
   display: flex;
   flex-direction: row;
   align-items: flex-start;
   margin-top: ${spaces.xl};
+  @media (max-width: ${breakPoints.mobile}) {
+    margin-top: ${spaces.none};
+    flex-direction: column;
+    padding: 0 2rem;
+    align-items: center;
+  }
 `;
 
 export const Area = styled.span``;
@@ -43,14 +49,22 @@ export const TextBold = styled.div`
 `;
 
 export const TextPixKey = styled.div`
-    ${Text}
-    font-weight: ${fonts.weight.regular};
-    text-align: center;
+  ${Text}
+  font-weight: ${fonts.weight.regular};
+  text-align: center;
 `;
 
 export const Image = styled.img`
-  width: 26rem;
-  height: 26rem;
-  margin-left: ${spaces.m};
-  margin-bottom: ${spaces.s};
+  width: 23rem;
+  height: 23rem;
+  margin-bottom: ${spaces.xs};
+  padding: ${spaces.sp};
+  background-color: ${colors.secondary};
+  @media (max-width: ${breakPoints.mobile}) {
+    margin-top: ${spaces.s};
+  }
+`;
+
+export const StyledLink = styled.a`
+  color: blue;
 `;

@@ -25,3 +25,9 @@
     transform: rotate(360deg);
   }
 }
+
+.app-body {
+  margin-top: 7rem;
+  height: calc(100vh - 7rem);
+  overflow-y: scroll;
+}

@@ -9,14 +9,17 @@ import {
 
 export const Activities = () => {
   const textTable = [
-    ["D'Favela",    "Coleta de peças doadas, customização e bazar."],
-    ["D'Votar",     "Política para leigos em parceria com o IPAD."],
-    ["D'Reciclar",  "Coleta e oficina de material reutilizável (Vidro, plástico, mandeira,etc)."],
+    ["D'Favela", "Coleta de peças doadas, customização e bazar."],
+    ["D'Votar", "Política para leigos em parceria com o IPAD."],
+    [
+      "D'Reciclar",
+      "Coleta e oficina de material reutilizável (Vidro, plástico, mandeira,etc).",
+    ],
     ["D'Eternizar", "Oficina de tatuagem, quadro e fotografia."],
-    ["D'Raiz",      "Oficina de trança"],
-    ["D'Lei",       "Consultas jurídicas com advogados voluntários."],
-    ["D'Sorrir",    "Parceria com faculdade de odontologia."],
-    ["D'Parir",     "Educação sexual, planejamento familiar e oficina de doulas."],
+    ["D'Raiz", "Oficina de trança"],
+    ["D'Lei", "Consultas jurídicas com advogados voluntários."],
+    ["D'Sorrir", "Parceria com faculdade de odontologia."],
+    ["D'Parir", "Educação sexual, planejamento familiar e oficina de doulas."],
     // ["D'Maré",     "Aulas de natação no mar e surf."],
     // ["D'Swing",     "Aulas de dança (afro e ritmos atuais)."],
     // ["D'Cantinho",  "Oficina de canto,assalato e violão."],
@@ -32,6 +35,7 @@ export const Activities = () => {
   return (
     <Container>
       <Title>Atividades Prestadas</Title>
+      <p>Atualmente, o instituto de pé conta com uma série de ativides gratuitas disponíveis ao público:</p>
       <Header>
         <FirstColumn>Nome</FirstColumn>
         <SecondColumn>Atividade</SecondColumn>
