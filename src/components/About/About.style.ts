@@ -59,7 +59,7 @@ export const Image = styled.img`
     width: 100%;
     margin-left: ${spaces.none};
     margin-bottom: ${spaces.sp};
-    object-fit: cover
+    object-fit: cover;
   }
 `;
 

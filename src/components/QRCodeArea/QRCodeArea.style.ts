@@ -11,8 +11,7 @@ export const Container = styled.div`
   @media (max-width: ${breakPoints.mobile}) {
     margin-top: ${spaces.none};
     flex-direction: column;
-    padding: 1rem;
-    width: 30rem;
+    padding: 0 2rem;
     align-items: center;
   }
 `;

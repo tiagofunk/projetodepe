@@ -1,7 +1,7 @@
 import styled, { css } from "styled-components";
 import Theme from "theme/Theme";
 
-const { colors, fonts, spaces, breakPoints  } = Theme;
+const { colors, fonts, spaces, breakPoints } = Theme;
 
 export const Container = styled.div`
   display: flex;
@@ -12,7 +12,7 @@ export const Container = styled.div`
   margin-right: auto;
   margin-left: auto;
   @media (max-width: ${breakPoints.mobile}) {
-    width: 25rem;
+    width: calc(100% - 4rem);
   }
 `;
 
@@ -52,7 +52,8 @@ export interface BoxProps {
 
 export const Box = styled.span<BoxProps>`
   ${StyleBox}
-  background-color: ${({isEven}) => isEven ? colors.secondary : colors.terciary };
+  background-color: ${({ isEven }) =>
+    isEven ? colors.secondary : colors.terciary};
 `;
 
 export const BoxImage = styled.img`
