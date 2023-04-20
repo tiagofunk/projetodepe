@@ -19,8 +19,8 @@ import photo_grasiele_gomes from "assets/img/professionals/grasiele_gomes.png";
 import photo_guilherme_andrade from "assets/img/professionals/guilherme_andrade.png";
 import photo_leonardo_fonseca from "assets/img/professionals/leonardo_fonseca.png";
 import photo_luana_aruantes from "assets/img/professionals/luana_aruantes.png";
+import photo_luis_claudio_francisco from "assets/img/professionals/luis_claudio_francisco.jpeg"
 import photo_marcos_uchoa from "assets/img/professionals/marcos_uchoa.png";
-import photo_onilia from "assets/img/professionals/onilia.png";
 import photo_priscila_pereira from "assets/img/professionals/priscila_pereira.png";
 import photo_rebeca_andrade from "assets/img/professionals/rebeca_andrade.png";
 import photo_reinaldo_amorim from "assets/img/professionals/reinaldo_amorim.png";
@@ -52,7 +52,7 @@ export const Professionals = () => {
     { photo: photo_anna_paula_viola, name: "Anna Paula Viola", expertisse: "Formada em Design de interface" },
     { photo: photo_anna_carolina_viola, name: "Anna Carolina Viola", expertisse: "Empreendedora e Advogada" },
     { photo: photo_gabriela, name: "Gabriela", expertisse: "Advogada" },
-    { photo: photo_onilia, name: "Onilia", expertisse: "Contadora, empreendedora e ativista feminina" },
+    { photo: photo_luis_claudio_francisco, name:"Luís Claudio Francisco", expertisse:"Horticultor-Prof. Artesão/Ativista lgbtqiap+"}
   ];
 
   return (

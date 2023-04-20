@@ -60,6 +60,7 @@ export const BoxImage = styled.img`
   width: 10rem;
   height: 10rem;
   margin-bottom: ${spaces.s};
+  border-radius: 50%;
 `;
 
 export const BoxTitle = styled.div`
