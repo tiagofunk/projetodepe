@@ -48,7 +48,7 @@ export const Contact = () => {
 
   const formId = "contact-form";
   const formSubmitLink = "https://formsubmit.co/";
-  const formSubmitHash = info.emailHash;
+  const formSubmitHash = info.email;
 
   const regexName = "^[0-9a-zA-Z ]+$";
   const regexEmail = "^[0-9a-zA-Z._]+@[0-9a-zA-Z]+\\.[a-zA-Z]{1,3}$";
@@ -438,6 +438,7 @@ export const Contact = () => {
           </HorizontalBox>
           {getOptionalFields()}
           <VerticalBox>{getFieldMessage()}</VerticalBox>
+          <input type="hidden" name="_template" value="table" />
           <VerticalBox>{getSubmitButton()}</VerticalBox>
         </VerticalBox>
       </Form>
