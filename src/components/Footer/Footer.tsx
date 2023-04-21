@@ -15,7 +15,7 @@ import {
   StyledIframe,
 } from "./Footer.styles";
 import { FooterContent } from "./Footer.types";
-const {info} = ProjetcOwner;
+const { info } = ProjetcOwner;
 
 export const Footer = () => {
   const footerContent: FooterContent[] = [
@@ -112,7 +112,7 @@ export const Footer = () => {
           title="google-maps"
           width="100%"
           height="250"
-          src="https://maps.google.com/maps?width=100%25&amp;height=400&amp;hl=en&amp;q=Av.%20Jos%C3%A9%20de%20Arimat%C3%A9ia,%2080%20-%20Cidade%20de%20Deus+(My%20Business%20Name)&amp;t=&amp;z=16&amp;ie=UTF8&amp;iwloc=B&amp;output=embed"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3674.1923414215685!2d-43.36256782476772!3d-22.943142479229433!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9bd92fff369c85%3A0x1f38f0ce0f0feec8!2sInstituto%20De%20P%C3%A9!5e0!3m2!1spt-BR!2sbr!4v1682090396365!5m2!1spt-BR!2sbr"
         />
       </InnerContainer>
     </FooterContainer>
